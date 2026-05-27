@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="header.svg" alt="Daniel Molina Barrios - Header" width="100%" style="border-radius: 12px; margin-bottom: 10px;" />
+  <img src="header_premium.svg" alt="Daniel Molina Barrios - Header" width="100%" style="border-radius: 12px; margin-bottom: 10px;" />
 </p>
 
 <p align="center" style="font-family: 'Inter', sans-serif; margin-top: 15px; margin-bottom: 15px;">
