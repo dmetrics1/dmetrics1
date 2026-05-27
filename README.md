@@ -1,30 +1,8 @@
 <p align="center">
-  <img src="github_banner.png" alt="Daniel Molina Barrios - Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+  <img src="header.svg" alt="Daniel Molina Barrios - Header" width="100%" style="border-radius: 12px; margin-bottom: 10px;" />
 </p>
 
-<p align="center">
-  <img src="logo.svg" alt="Daniel Molina Logo" width="140" style="margin-bottom: 10px;" />
-</p>
-
-<h1 align="center"><font color="#7C3AED">Daniel Molina Barrios</font></h1>
-
-<p align="center" style="font-size: 1.35em; font-family: 'Inter', sans-serif; margin-top: -5px;">
-  <b><font color="#2563EB">Economía & Ciencia de Datos</font></b>
-</p>
-
-<p align="center" style="font-size: 1.15em; font-family: 'Inter', sans-serif;">
-  <b>Datos que generan claridad. Sistemas que impulsan crecimiento.</b>
-</p>
-
-<p align="center" style="color: #6b7280; font-size: 1.05em; font-family: 'Inter', sans-serif; max-width: 750px; margin: 0 auto 20px auto;">
-  Dashboards, automatizaciones, IA y páginas web que convierten información en decisiones estratégicas.
-</p>
-
-<p align="center" style="font-family: 'Inter', sans-serif;">
-  <i>"Transformo datos en decisiones."</i>
-</p>
-
-<p align="center" style="font-family: 'Inter', sans-serif;">
+<p align="center" style="font-family: 'Inter', sans-serif; margin-top: 15px; margin-bottom: 15px;">
   <a href="#-sobre-mí"><b>Sobre Mí</b></a> • 
   <a href="#-habilidades-técnicas"><b>Habilidades</b></a> • 
   <a href="#-proyectos-destacados"><b>Proyectos</b></a> • 
@@ -32,7 +10,7 @@
   <a href="#-conectemos"><b>Contacto</b></a>
 </p>
 
-<p align="center">
+<p align="center" style="margin-bottom: 25px;">
   <img src="https://komarev.com/ghpvc/?username=dmetrics1&color=7c3aed&style=flat-square&label=Vistas" alt="Views Counter" />
 </p>
 

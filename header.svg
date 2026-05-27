@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap');
+      
+      .title {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 800;
+        font-size: 52px;
+        fill: #FFFFFF;
+        text-anchor: middle;
+        letter-spacing: -1.5px;
+      }
+      
+      .specialty {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 26px;
+        fill: #06B6D4;
+        text-anchor: middle;
+        letter-spacing: 0.5px;
+      }
+      
+      .phrase1 {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        fill: #E5E7EB;
+        text-anchor: middle;
+      }
+      
+      .phrase2 {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        fill: #9CA3AF;
+        text-anchor: middle;
+      }
+      
+      .tagline {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-style: italic;
+        font-weight: 600;
+        font-size: 18px;
+        fill: #10B981;
+        text-anchor: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Image (The clean Map) -->
+  <image href="github_banner.png" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice" opacity="0.9" />
+
+  <!-- Overlay for contrast and visual blending -->
+  <rect x="0" y="0" width="1200" height="630" fill="#111827" opacity="0.65" />
+
+  <!-- Logo -->
+  <image href="logo.svg" x="530" y="45" width="140" height="140" />
+
+  <!-- Text elements -->
+  <text x="600" y="245" class="title">Daniel Molina Barrios</text>
+  <text x="600" y="295" class="specialty">Economía &amp; Ciencia de Datos</text>
+  <text x="600" y="355" class="phrase1">Datos que generan claridad. Sistemas que impulsan crecimiento.</text>
+  <text x="600" y="405" class="phrase2">Dashboards, automatizaciones, IA y páginas web que convierten información en decisiones estratégicas.</text>
+  <text x="600" y="465" class="tagline">"Transformo datos en decisiones."</text>
+</svg>
