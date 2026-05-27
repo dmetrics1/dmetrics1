@@ -6,9 +6,13 @@
   <img src="logo.svg" alt="Daniel Molina Logo" width="140" style="margin-bottom: 10px;" />
 </p>
 
-<h1 align="center">Daniel Molina Barrios</h1>
+<h1 align="center"><font color="#7C3AED">Daniel Molina Barrios</font></h1>
 
-<p align="center" style="font-size: 1.25em; font-family: 'Aeonik', 'Inter', sans-serif;">
+<p align="center" style="font-size: 1.35em; font-family: 'Inter', sans-serif; margin-top: -5px;">
+  <b><font color="#2563EB">Economía & Ciencia de Datos</font></b>
+</p>
+
+<p align="center" style="font-size: 1.15em; font-family: 'Inter', sans-serif;">
   <b>Datos que generan claridad. Sistemas que impulsan crecimiento.</b>
 </p>
 
