@@ -18,15 +18,23 @@ Economista especializado en **econometría**, **análisis cuantitativo** y **mac
 
 ---
 
-## 📊 Estadísticas en Tiempo Real
+## 📊 Ficha Técnica & Analítica
 
 <table border="0" align="center" width="100%">
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://github-readme-stats-anuraghazra.vercel.app/api?username=dmetrics1&show_icons=true&theme=custom&title_color=7c3aed&icon_color=06b6d4&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Estadísticas de Daniel Molina" width="400"/>
+  <tr style="background-color: #111827;">
+    <td align="left" width="50%" style="border: 1px solid #2563eb; padding: 15px; border-radius: 8px; vertical-align: top;">
+      <h3 align="center" style="color: #7c3aed; margin-top: 0;">🚀 Capacidades de Cómputo</h3>
+      <ul>
+        <li><b>Minería de Datos</b>: Algoritmo Apriori (arules en R)</li>
+        <li><b>Modelación Econométrica</b>: PCA, Regresiones y Series Temporales</li>
+        <li><b>Procesamiento Masivo</b>: Flujos ETL en Polars (Python) y data.table (R)</li>
+        <li><b>Visualización Ejecutiva</b>: Quarto, Streamlit, Plotly, Power BI</li>
+        <li><b>Calidad de Código</b>: Pruebas unitarias robustas (pytest)</li>
+      </ul>
     </td>
-    <td align="center" width="50%">
-      <img src="https://github-readme-stats-anuraghazra.vercel.app/api/top-langs/?username=dmetrics1&layout=compact&theme=custom&title_color=7c3aed&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Lenguajes más usados por Daniel" width="350"/>
+    <td align="center" width="50%" style="border: 1px solid #2563eb; padding: 15px; border-radius: 8px; vertical-align: middle;">
+      <h3 style="color: #06b6d4; margin-top: 0;">⚡ Actividad Reciente</h3>
+      <img src="https://streak-stats.demolab.com/?user=dmetrics1&theme=dark&background=111827&border=2563eb&ring=06b6d4&fire=7c3aed&text=e5e7eb" alt="GitHub Streak Stats" width="310"/>
     </td>
   </tr>
 </table>
@@ -37,21 +45,22 @@ Economista especializado en **econometría**, **análisis cuantitativo** y **mac
 
 ### 📊 1. [EMICRON 2024](https://github.com/dmetrics1/micronegocios-colombia-2024)
 *Minería de patrones y análisis ponderado de **5.3 millones de micronegocios** en Colombia (DANE).*
-*   **Pipeline Estadístico**: Integración y etiquetado de microdatos oficiales de 77K registros. Aplicación de algoritmo **Apriori** (`arules` en R) para identificar dinámicas de adopción TIC e inclusión financiera.
+*   **Pipeline Estadístico**: Integración de microdatos oficiales de 77K registros y minería de reglas de asociación (**Apriori**) en R para estudiar la adopción TIC.
 *   **Reportería Premium**: Diseño de reporte interactivo adaptativo en **Quarto HTML** (CSS Grid/SCSS) que visualiza **85 cuadros oficiales** validados.
 
 ### 📈 2. [Dashboard de Mercado Laboral](https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano)
 *Plataforma interactiva para la exploración y análisis territorial de la GEIH (DANE) · 2022–2025.*
-*   **Ingeniería de Datos**: Pipeline ETL optimizado con **Polars** que consolida 24 dimensiones analíticas territoriales, demográficas y salariales ponderadas (`FEX_C18`).
-*   **Garantía de Calidad**: **25 pruebas unitarias automatizadas con pytest** que verifican la precisión matemática e invarianza de las métricas.
+*   **Ingeniería de Datos**: Pipeline ETL optimizado con **Polars** que consolida 24 dimensiones analíticas territoriales y salariales ponderadas (`FEX_C18`).
+*   **Garantía de Calidad**: **25 pruebas unitarias automatizadas con pytest** que verifican la precisión matemática de las métricas.
 
 ### 📉 3. [PCA Pobreza Multidimensional](https://github.com/dmetrics1/colombia-multidimensional-poverty-pca)
 *Modelación econométrica de reducción dimensional para perfilar vulnerabilidad y exclusión.*
-*   **Análisis Multivariante**: Aplicación de **Componentes Principales (PCA)** para la construcción de índices sintéticos de pobreza departamental en Colombia, permitiendo optimizar el diseño de políticas públicas.
+*   **Análisis Multivariante**: Aplicación de **Componentes Principales (PCA)** para la construcción de índices sintéticos de pobreza departamental en Colombia.
 
 ---
 
 ## 📬 Conectemos
+
 <p align="center">
   <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a> &nbsp;
   <a href="mailto:dm0025900@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a> &nbsp;
