@@ -12,23 +12,21 @@
 
 ---
 
-## 👤 Sobre Mí
+## 👤 Perfil Profesional
 
-Soy **Economista** con una sólida trayectoria como analista de datos en proyectos de investigación aplicada, consultoría y el sector público. Me especializo en **econometría**, **análisis cuantitativo** y **machine learning aplicado**, con un dominio avanzado de **R**, **Python**, **SQL** y **Power BI**.
-
-He participado en procesos de integración, modelación predictiva, validación y visualización de grandes volúmenes de datos para generar evidencia técnica rigurosa orientada a la toma de decisiones estratégicas y al diseño de políticas públicas. Mi enfoque está centrado en la excelencia técnica, la validación empírica y el desarrollo de soluciones analíticas reproducibles de alto valor.
+Economista especializado en **econometría**, **análisis cuantitativo** y **machine learning aplicado** (R, Python, SQL, Power BI). Con experiencia en investigación, sector público y consultoría, diseño soluciones analíticas y flujos ETL robustos para convertir grandes volúmenes de datos en evidencia estratégica.
 
 ---
 
-## 📊 Estadísticas y Actividad en GitHub
+## 📊 Estadísticas en Tiempo Real
 
 <table border="0" align="center" width="100%">
   <tr>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api?username=dmetrics1&show_icons=true&theme=custom&title_color=7c3aed&icon_color=06b6d4&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Estadísticas de Daniel Molina" width="400"/>
+      <img src="https://github-readme-stats-anuraghazra.vercel.app/api?username=dmetrics1&show_icons=true&theme=custom&title_color=7c3aed&icon_color=06b6d4&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Estadísticas de Daniel Molina" width="400"/>
     </td>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dmetrics1&layout=compact&theme=custom&title_color=7c3aed&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Lenguajes más usados por Daniel" width="350"/>
+      <img src="https://github-readme-stats-anuraghazra.vercel.app/api/top-langs/?username=dmetrics1&layout=compact&theme=custom&title_color=7c3aed&text_color=e5e7eb&bg_color=111827&border_color=2563eb&locale=es" alt="Lenguajes más usados por Daniel" width="350"/>
     </td>
   </tr>
 </table>
@@ -37,32 +35,23 @@ He participado en procesos de integración, modelación predictiva, validación 
 
 ## 🚀 Proyectos Destacados
 
-### 📊 1. EMICRON 2024 - Análisis Integral de Micronegocios Colombianos
-*Pipeline de procesamiento y minería de datos a partir de la Encuesta de Micronegocios (EMICRON) del DANE.*
-*   **Enfoque analítico**: Consolidación y procesamiento ponderado bajo metodologías del DANE para un universo de **5.3 millones de micronegocios** en Colombia (muestra de 77,202 registros). Implementación del algoritmo **Apriori** (`arules` en R) para descubrir y caracterizar patrones de digitalización, inclusión financiera y antigüedad comercial.
-*   **Entregables**: Reporte de alto impacto interactivo en **Quarto HTML** con diseño premium adaptativo (SCSS personalizado, CSS Grid y gráficos dinámicos de ggplot2), estructurando **85 cuadros estadísticos ponderados** validados contra boletines oficiales.
-*   **Stack**: R (tidyverse, data.table, arules, arulesViz), Quarto, SCSS, CSS Grid.
-*   🔗 **Repositorio**: [`micronegocios-colombia-2024`](https://github.com/dmetrics1/micronegocios-colombia-2024)
+### 📊 1. [EMICRON 2024](https://github.com/dmetrics1/micronegocios-colombia-2024)
+*Minería de patrones y análisis ponderado de **5.3 millones de micronegocios** en Colombia (DANE).*
+*   **Pipeline Estadístico**: Integración y etiquetado de microdatos oficiales de 77K registros. Aplicación de algoritmo **Apriori** (`arules` en R) para identificar dinámicas de adopción TIC e inclusión financiera.
+*   **Reportería Premium**: Diseño de reporte interactivo adaptativo en **Quarto HTML** (CSS Grid/SCSS) que visualiza **85 cuadros oficiales** validados.
 
-### 📈 2. Dashboard del Mercado Laboral Colombiano (GEIH)
-*Aplicación web interactiva para la visualización y análisis de la Gran Encuesta Integrada de Hogares (GEIH) · 2022–2025.*
-*   **Enfoque analítico**: Procesamiento masivo de microdatos DANE a nivel de persona empleando el factor de expansión `FEX_C18`. Visualización espacial y temporal de Tasa de Desempleo (TD), Tasa de Ocupación (TO), informalidad laboral, ingreso laboral mediano ponderado y brechas de género/etarias por departamento y área metropolitana.
-*   **Características técnicas**: Pipeline ETL de alto rendimiento programado en **Polars** que consolida 24 dimensiones analíticas. Cuenta con **25 pruebas unitarias con pytest** que aseguran la consistencia de los indicadores y la invarianza matemática.
-*   **Stack**: Python, Streamlit, Polars, pandas, pyarrow, Plotly Mapbox, pytest.
-*   🔗 **Repositorio**: [`dashboard_mercado_laboral_colombiano`](https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano)
+### 📈 2. [Dashboard de Mercado Laboral](https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano)
+*Plataforma interactiva para la exploración y análisis territorial de la GEIH (DANE) · 2022–2025.*
+*   **Ingeniería de Datos**: Pipeline ETL optimizado con **Polars** que consolida 24 dimensiones analíticas territoriales, demográficas y salariales ponderadas (`FEX_C18`).
+*   **Garantía de Calidad**: **25 pruebas unitarias automatizadas con pytest** que verifican la precisión matemática e invarianza de las métricas.
 
-### 📉 3. Principal Component Analysis for Multidimensional Poverty
-*Modelación econométrica de reducción dimensional aplicada a indicadores de vulnerabilidad social departamental en Colombia.*
-*   **Enfoque analítico**: Implementación matemática del método de **Análisis de Componentes Principales (PCA)** para la construcción de índices sintéticos de pobreza multidimensional. Permite perfilar geográficamente las principales dimensiones del rezago socioeconómico a nivel subnacional.
-*   **Stack**: R (factoextra, ggplot2), RStudio, HTML.
-*   🔗 **Repositorio**: [`colombia-multidimensional-poverty-pca`](https://github.com/dmetrics1/colombia-multidimensional-poverty-pca)
+### 📉 3. [PCA Pobreza Multidimensional](https://github.com/dmetrics1/colombia-multidimensional-poverty-pca)
+*Modelación econométrica de reducción dimensional para perfilar vulnerabilidad y exclusión.*
+*   **Análisis Multivariante**: Aplicación de **Componentes Principales (PCA)** para la construcción de índices sintéticos de pobreza departamental en Colombia, permitiendo optimizar el diseño de políticas públicas.
 
 ---
 
 ## 📬 Conectemos
-
-¿Te interesa colaborar en proyectos de investigación aplicada, consultoría de datos o desarrollo analítico? ¡Hablemos!
-
 <p align="center">
   <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a> &nbsp;
   <a href="mailto:dm0025900@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a> &nbsp;
