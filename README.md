@@ -44,10 +44,10 @@
     <!-- Right Column: Real GitHub Dynamic Stats Cards -->
     <td width="50%" valign="top" style="border: none;">
       <p align="center" style="margin-top: 0; margin-bottom: 15px;">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dmetrics1&layout=compact&langs_count=5&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12" alt="Top Languages" width="100%" style="border-radius: 12px;" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=dmetrics1&amp;layout=compact&amp;langs_count=5&amp;theme=dark&amp;bg_color=111827&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=1f2937&amp;border_radius=12" alt="Top Languages" width="100%" style="border-radius: 12px;" />
       </p>
       <p align="center">
-        <img src="https://github-readme-stats.vercel.app/api?username=dmetrics1&show_icons=true&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12" alt="GitHub Stats" width="100%" style="border-radius: 12px;" />
+        <img src="https://github-readme-stats.vercel.app/api?username=dmetrics1&amp;show_icons=true&amp;theme=dark&amp;bg_color=111827&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=1f2937&amp;border_radius=12" alt="GitHub Stats" width="100%" style="border-radius: 12px;" />
       </p>
     </td>
   </tr>
