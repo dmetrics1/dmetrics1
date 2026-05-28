@@ -3,7 +3,7 @@
   <tr style="border: none;">
     <td align="left" style="border: none; padding: 0;">
       <a href="https://github.com/dmetrics1" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
-        <img src="https://raw.githubusercontent.com/dmetrics1/dmetrics1/master/logo.svg" alt="DM" width="42" style="margin-right: 10px;" />
+        <img src="./logo.svg" alt="DM" width="42" style="margin-right: 10px;" />
         <span style="font-size: 1.6em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">
           DANIEL<font color="#2563EB">MOLINA</font>
         </span>
@@ -51,13 +51,13 @@
     <!-- Right Column: Live GitHub Stats -->
     <td width="50%" valign="top" style="border: none;">
       <img
-        src="https://github-readme-stats.vercel.app/api/top-langs?username=dmetrics1&amp;layout=compact&amp;langs_count=5&amp;theme=dark&amp;bg_color=111827&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=1f2937&amp;border_radius=12"
+        src="https://github-stats-extended.vercel.app/api/top-langs?username=dmetrics1&layout=compact&langs_count=5&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12"
         alt="Top Languages"
         width="100%"
         style="border-radius: 12px; margin-bottom: 14px; display: block;"
       />
       <img
-        src="https://github-readme-stats.vercel.app/api?username=dmetrics1&amp;show_icons=true&amp;theme=dark&amp;bg_color=111827&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=1f2937&amp;border_radius=12&amp;hide_border=false"
+        src="https://github-stats-extended.vercel.app/api?username=dmetrics1&show_icons=true&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12&hide_border=false"
         alt="GitHub Stats"
         width="100%"
         style="border-radius: 12px; display: block;"
@@ -148,7 +148,7 @@ Me especializo en diseñar **soluciones analíticas integrales** y flujos ETL ro
 
 <p align="center">
   <img
-    src="https://streak-stats.demolab.com?user=dmetrics1&amp;theme=dark&amp;background=111827&amp;border=1f2937&amp;ring=7c3aed&amp;fire=06b6d4&amp;currStreakNum=e5e7eb&amp;sideLabels=9ca3af&amp;border_radius=12"
+    src="https://streak-stats.demolab.com?user=dmetrics1&theme=dark&background=111827&border=1f2937&ring=7c3aed&fire=06b6d4&currStreakNum=e5e7eb&sideLabels=9ca3af&border_radius=12"
     alt="GitHub Streak"
     width="80%"
     style="border-radius: 12px;"
@@ -157,7 +157,7 @@ Me especializo en diseñar **soluciones analíticas integrales** y flujos ETL ro
 
 <p align="center">
   <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=dmetrics1&amp;bg_color=111827&amp;color=7c3aed&amp;line=06b6d4&amp;point=e5e7eb&amp;area=true&amp;hide_border=true&amp;border_radius=12"
+    src="https://github-readme-activity-graph.vercel.app/graph?username=dmetrics1&bg_color=111827&color=7c3aed&line=06b6d4&point=e5e7eb&area=true&hide_border=true&border_radius=12"
     alt="Activity Graph"
     width="100%"
     style="border-radius: 12px;"
