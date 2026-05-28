@@ -1,18 +1,57 @@
-<p align="center">
-  <img src="header_premium.svg" alt="Daniel Molina Barrios - Header" width="100%" style="border-radius: 12px; margin-bottom: 10px;" />
-</p>
+<!-- Custom Brand Navbar -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; margin-bottom: 35px;">
+  <tr style="border: none;">
+    <td align="left" style="border: none; padding: 0;">
+      <a href="https://github.com/dmetrics1" style="text-decoration: none;">
+        <img src="logo.svg" alt="Daniel Molina Logo" width="45" align="left" style="margin-right: 12px; margin-top: 2px;" />
+        <span style="font-size: 1.65em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; color: #FFFFFF; line-height: 45px; letter-spacing: -0.5px;">
+          DANIEL<font color="#2563EB">MOLINA</font>
+        </span>
+      </a>
+    </td>
+    <td align="right" valign="middle" style="border: none; padding: 0;">
+      <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.95em; margin: 0; line-height: 45px; word-spacing: 2px;">
+        <a href="#-sobre-mí" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Sobre Mí</a> &nbsp;•&nbsp; 
+        <a href="#-habilidades-técnicas" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Habilidades</a> &nbsp;•&nbsp; 
+        <a href="#-proyectos-destacados" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Proyectos</a> &nbsp;•&nbsp; 
+        <a href="#-conectemos" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Contacto</a>
+      </p>
+    </td>
+  </tr>
+</table>
 
-<p align="center" style="font-family: 'Inter', sans-serif; margin-top: 15px; margin-bottom: 15px;">
-  <a href="#-sobre-mí"><b>Sobre Mí</b></a> • 
-  <a href="#-habilidades-técnicas"><b>Habilidades</b></a> • 
-  <a href="#-proyectos-destacados"><b>Proyectos</b></a> • 
-  <a href="#-estadísticas-analíticas"><b>Estadísticas</b></a> • 
-  <a href="#-conectemos"><b>Contacto</b></a>
-</p>
-
-<p align="center" style="margin-bottom: 25px;">
-  <img src="https://komarev.com/ghpvc/?username=dmetrics1&color=7c3aed&style=flat-square&label=Vistas" alt="Views Counter" />
-</p>
+<!-- Split Hero Section -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; margin-bottom: 40px;">
+  <tr style="border: none;">
+    <!-- Left Column: Copywriting -->
+    <td width="50%" valign="top" style="border: none; padding-right: 30px;">
+      <p align="left" style="margin-top: 0; margin-bottom: 12px;">
+        <font color="#06B6D4" size="2" style="letter-spacing: 1.8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;"><b>DATA SCIENCE, AUTOMATIZACIÓN E IA APLICADA</b></font>
+      </p>
+      <h1 align="left" style="font-size: 2.7em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; line-height: 1.15; border-bottom: none; margin-top: 0; margin-bottom: 20px; color: #FFFFFF; letter-spacing: -1px;">
+        Datos que generan claridad.<br>Sistemas que impulsan <br><font color="#7C3AED">crecimiento</font>.
+      </h1>
+      <p align="left" style="color: #9CA3AF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 1.1em; line-height: 1.55; margin-bottom: 20px; max-width: 480px;">
+        Dashboards, automatizaciones, IA y páginas web que convierten información en decisiones estratégicas.
+      </p>
+      <p align="left" style="font-style: italic; color: #10B981; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 1.15em; font-weight: 600; margin-bottom: 25px;">
+        "Transformo datos en decisiones."
+      </p>
+      <p align="left" style="margin-top: 20px;">
+        <img src="https://komarev.com/ghpvc/?username=dmetrics1&color=7c3aed&style=flat-square&label=Vistas" alt="Views Counter" />
+      </p>
+    </td>
+    <!-- Right Column: Real GitHub Dynamic Stats Cards -->
+    <td width="50%" valign="top" style="border: none;">
+      <p align="center" style="margin-top: 0; margin-bottom: 15px;">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=dmetrics1&layout=compact&langs_count=5&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12" alt="Top Languages" width="100%" style="border-radius: 12px;" />
+      </p>
+      <p align="center">
+        <img src="https://github-readme-stats.vercel.app/api?username=dmetrics1&show_icons=true&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12" alt="GitHub Stats" width="100%" style="border-radius: 12px;" />
+      </p>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -109,18 +148,11 @@ Me especializo en diseñar **soluciones analíticas integrales** y flujos ETL ro
 
 ---
 
-## 📈 Estadísticas Analíticas
+## 📈 Actividad y Contribuciones
 
-<table border="0" align="center" width="100%">
-  <tr style="border: none;">
-    <td align="center" width="50%" style="border: none; padding: 10px; vertical-align: middle;">
-      <img src="https://github-readme-stats.vercel.app/api?username=dmetrics1&show_icons=true&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=2563eb&locale=es" alt="GitHub Stats" width="100%" style="max-width: 400px; border-radius: 8px;" />
-    </td>
-    <td align="center" width="50%" style="border: none; padding: 10px; vertical-align: middle;">
-      <img src="https://streak-stats.demolab.com/?user=dmetrics1&theme=dark&background=111827&border=2563eb&ring=06b6d4&fire=10b981&text=e5e7eb" alt="GitHub Streak" width="100%" style="max-width: 400px; border-radius: 8px;" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://streak-stats.demolab.com/?user=dmetrics1&theme=dark&background=111827&border=1f2937&ring=7c3aed&fire=06b6d4&currStreakNum=e5e7eb&sideLabels=9ca3af&border_radius=12" alt="GitHub Streak" width="100%" style="max-width: 600px; border-radius: 12px;" />
+</p>
 
 ---
 
