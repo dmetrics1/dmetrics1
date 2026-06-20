@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/badge/LinkedIn-2563EB?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
   </a>
   &nbsp;
-  <a href="mailto:hola@danielmolina.co">
+  <a href="mailto:dm0025900@gmail.com">
     <img src="https://img.shields.io/badge/Email-06B6D4?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=gmail&amp;logoColor=white" alt="Email" />
   </a>
 </p>
@@ -145,11 +145,11 @@ Based in Santa Marta, Colombia 🇨🇴 · Working remote across LATAM and beyon
 </p>
 
 <p align="center">
-  Write me at <a href="mailto:hola@danielmolina.co"><b><font color="#06B6D4">hola@danielmolina.co</font></b></a> — first diagnostic call is free.
+  Write me at <a href="mailto:dm0025900@gmail.com"><b><font color="#06B6D4">dm0025900@gmail.com</font></b></a> — first diagnostic call is free.
 </p>
 
 <br />
 
 <p align="center">
-  <sub><font color="#6B7280">© 2026 Daniel Molina Barrios · Built with brand identity v2 · <a href="https://github.com/dmetrics1/personal-landing" style="color:#6B7280;">danielmolina.co</a></font></sub>
+  <sub><font color="#6B7280">© 2026 Daniel Molina Barrios · Built with brand identity v2</font></sub>
 </p>
