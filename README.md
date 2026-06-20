@@ -108,7 +108,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td width="38%" valign="top">
-      <a href="https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano"><b><font color="#2563EB">dashboard-mercado-laboral-co</font></b></a>
+      <a href="https://github.com/dmetrics1/dashboard-mercado-laboral-co"><b><font color="#2563EB">dashboard-mercado-laboral-co</font></b></a>
     </td>
     <td valign="top">
       <sub>Colombian labor-market interactive dashboard — DANE/GEIH microdata, Polars ETL, 25 pytest checks.</sub>
