@@ -11,15 +11,15 @@
 
 <p>
   <a href="https://github.com/dmetrics1/personal-landing">
-    <img src="https://img.shields.io/badge/Portfolio-7C3AED?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=githubpages&amp;logoColor=white" alt="Portfolio" />
+    <img src="https://img.shields.io/badge/PORTFOLIO-7C3AED?style=for-the-badge" alt="Portfolio" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/">
-    <img src="https://img.shields.io/badge/LinkedIn-2563EB?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LINKEDIN-2563EB?style=for-the-badge" alt="LinkedIn" />
   </a>
   &nbsp;
   <a href="mailto:dm0025900@gmail.com">
-    <img src="https://img.shields.io/badge/Email-06B6D4?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=gmail&amp;logoColor=white" alt="Email" />
+    <img src="https://img.shields.io/badge/EMAIL-06B6D4?style=for-the-badge" alt="Email" />
   </a>
 </p>
 
