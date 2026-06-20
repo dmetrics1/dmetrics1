@@ -1,193 +1,198 @@
-<!-- Custom Brand Navbar -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; margin-bottom: 35px;">
-  <tr style="border: none;">
-    <td align="left" style="border: none; padding: 0;">
-      <a href="https://github.com/dmetrics1" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
-        <img src="./logo.svg" alt="DM" width="42" style="margin-right: 10px;" />
-        <span style="font-size: 1.6em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 800; color: #FFFFFF; letter-spacing: -0.5px;">
-          DANIEL<font color="#2563EB">MOLINA</font>
-        </span>
+<!-- ====================== NAVBAR ====================== -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left">
+      <a href="https://github.com/dmetrics1" style="text-decoration:none;">
+        <img src="./logo.svg" alt="DM" width="40" align="absmiddle" />
+        &nbsp;<span style="font-size:1.45em;font-weight:800;color:#F9FAFB;letter-spacing:-0.5px;">DANIEL<font color="#2563EB">MOLINA</font></span>
       </a>
     </td>
-    <td align="right" valign="middle" style="border: none; padding: 0;">
-      <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 0.9em;">
-        <a href="#-sobre-mí" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Sobre Mí</a> &nbsp;·&nbsp;
-        <a href="#-habilidades-técnicas" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Habilidades</a> &nbsp;·&nbsp;
-        <a href="#-proyectos-destacados" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Proyectos</a> &nbsp;·&nbsp;
-        <a href="#-conectemos" style="color: #9CA3AF; text-decoration: none; font-weight: 600;">Contacto</a>
-      </span>
+    <td align="right">
+      <sub>
+        <a href="#about" style="color:#9CA3AF;text-decoration:none;font-weight:600;">About</a> &nbsp;·&nbsp;
+        <a href="#services" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Services</a> &nbsp;·&nbsp;
+        <a href="#stack" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Stack</a> &nbsp;·&nbsp;
+        <a href="#projects" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Projects</a> &nbsp;·&nbsp;
+        <a href="#contact" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Contact</a>
+      </sub>
     </td>
   </tr>
 </table>
 
-<!-- Split Hero Section -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; margin-bottom: 40px;">
-  <tr style="border: none;">
-    <!-- Left Column -->
-    <td width="50%" valign="top" style="border: none; padding-right: 28px;">
-      <p style="margin: 0 0 10px 0;">
-        <font color="#06B6D4"><b><small>DATA SCIENCE, AUTOMATIZACIÓN E IA APLICADA</small></b></font>
-      </p>
-      <h1 align="left" style="font-size: 2.2em; font-weight: 800; line-height: 1.1; border-bottom: none; margin: 0 0 4px 0; color: #FFFFFF; letter-spacing: -0.5px;">
-        Daniel Molina
-      </h1>
-      <p style="margin: 0 0 16px 0;">
-        <font color="#9CA3AF"><small>Economista &amp; Data Scientist</small></font>
-      </p>
-      <h2 align="left" style="font-size: 1.45em; font-weight: 700; line-height: 1.2; border-bottom: none; margin: 0 0 14px 0; color: #E5E7EB; letter-spacing: -0.3px;">
-        Datos que generan claridad.<br>
-        Sistemas que impulsan <font color="#7C3AED">crecimiento</font>.
-      </h2>
-      <p style="color: #9CA3AF; font-size: 1.05em; line-height: 1.55; margin: 0 0 16px 0;">
-        Dashboards, automatizaciones, IA y páginas web que convierten información en decisiones estratégicas.
-      </p>
-      <p style="font-style: italic; color: #10B981; font-size: 1.1em; font-weight: 600; margin: 0 0 22px 0;">
-        "Transformo datos en decisiones."
-      </p>
-      <p style="margin: 0;">
-        <img src="https://komarev.com/ghpvc/?username=dmetrics1&color=7c3aed&style=flat-square&label=Vistas+al+perfil" alt="Vistas al perfil" />
-      </p>
-    </td>
-    <!-- Right Column: Live GitHub Stats -->
-    <td width="50%" valign="top" style="border: none;">
-      <img
-        src="https://github-stats-extended.vercel.app/api/top-langs?username=dmetrics1&layout=compact&langs_count=5&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12"
-        alt="Top Languages"
-        width="100%"
-        style="border-radius: 12px; margin-bottom: 14px; display: block;"
-      />
-      <img
-        src="https://github-stats-extended.vercel.app/api?username=dmetrics1&show_icons=true&theme=dark&bg_color=111827&title_color=7c3aed&text_color=e5e7eb&icon_color=06b6d4&border_color=1f2937&border_radius=12&hide_border=false"
-        alt="GitHub Stats"
-        width="100%"
-        style="border-radius: 12px; display: block;"
-      />
-    </td>
-  </tr>
-</table>
+<br />
+
+<!-- ======================== HERO ======================== -->
+<div align="center">
+
+<sub><b><font color="#06B6D4">DATA &nbsp;·&nbsp; DASHBOARDS &nbsp;·&nbsp; AI &nbsp;·&nbsp; AUTOMATION</font></b></sub>
+
+<h1 style="font-size:2.6em;font-weight:800;letter-spacing:-1px;margin:6px 0 0 0;color:#F9FAFB;">Daniel Molina</h1>
+
+<sub><font color="#9CA3AF">Economist &amp; Data Scientist · LATAM remote</font></sub>
+
+### <font color="#E5E7EB">I turn data into <font color="#10B981">solutions</font>, <font color="#2563EB">products</font>, and <font color="#06B6D4">decisions</font>.</font>
+
+<p>
+  <a href="https://github.com/dmetrics1/personal-landing">
+    <img src="https://img.shields.io/badge/%E2%97%8B%20Portfolio-7C3AED?style=for-the-badge&amp;labelColor=0A0E1A" alt="Portfolio" />
+  </a>
+  &nbsp;
+  <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/">
+    <img src="https://img.shields.io/badge/in%20LinkedIn-2563EB?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
+  </a>
+  &nbsp;
+  <a href="mailto:hola@danielmolina.co">
+    <img src="https://img.shields.io/badge/%E2%9C%89%20Email-06B6D4?style=for-the-badge&amp;labelColor=0A0E1A" alt="Email" />
+  </a>
+</p>
+
+<img src="https://komarev.com/ghpvc/?username=dmetrics1&amp;color=7c3aed&amp;style=flat-square&amp;label=Profile+views" alt="Profile views" />
+
+</div>
 
 ---
 
-## 👤 Sobre Mí
+<!-- ======================== ABOUT ======================== -->
+<h2 id="about">👤 About</h2>
 
-¡Hola! 👋 Soy **Daniel Molina Barrios**, **Economista & Data Scientist** radicado en Santa Marta, Colombia 🇨🇴.
+Economist turned **Data Scientist**. I build data-driven solutions for teams across LATAM: dashboards that read at a glance, pipelines that replace manual work, and models that back real decisions. I don't ship pretty charts — I ship **faster, cheaper decisions**.
 
-Me especializo en diseñar **soluciones analíticas integrales** y flujos ETL robustos que convierten grandes volúmenes de datos en evidencia estratégica. Mi enfoque interdisciplinario me permite entender los problemas de negocio desde su raíz y traducirlos en algoritmos predictivos, dashboards interactivos y automatizaciones que optimizan la toma de decisiones.
-
-- 🎓 **Economista** con sólida formación en econometría, modelación multivariante y análisis cuantitativo
-- 💻 **Data Scientist** apasionado por la programación limpia, ingeniería de datos de alto rendimiento y ML aplicado
-- 📈 **Orientado a resultados**: sistemas que impulsan el crecimiento y automatizaciones que generan claridad operativa
+Based in Santa Marta, Colombia 🇨🇴 · Working remote across LATAM and beyond.
 
 ---
 
-## 🛠️ Habilidades Técnicas
+<!-- ======================== SERVICES ====================== -->
+<h2 id="services">🛠️ How I help my clients</h2>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr style="border: none;">
-    <td width="33%" valign="top" style="border: none; padding: 0 12px 0 0;">
-      <h3><font color="#7C3AED">📊 Datos</font></h3>
-      <p><small style="color: #6b7280;">Minería de datos, econometría, series temporales y procesamiento masivo.</small></p>
-      <img src="https://skillicons.dev/icons?i=python,r,postgres&theme=dark" alt="Python, R, PostgreSQL" />
+  <tr>
+    <td width="33%" valign="top">
+      <h3><font color="#7C3AED">📊 Executive Dashboards</font></h3>
+      <sub><font color="#9CA3AF">Power BI / Streamlit connected to your sources — KPIs that update themselves.</font></sub>
     </td>
-    <td width="33%" valign="top" style="border: none; padding: 0 12px;">
-      <h3><font color="#2563EB">📈 Dashboards</font></h3>
-      <p><small style="color: #6b7280;">Visualización ejecutiva, reportes interactivos, Quarto y front-end.</small></p>
-      <img src="https://skillicons.dev/icons?i=html,css&theme=dark" alt="HTML, CSS" />
-      <img src="https://img.shields.io/badge/Power_BI-F2C94C?style=flat-square&logo=powerbi&logoColor=black" height="48" alt="Power BI" style="border-radius: 8px; margin-left: 4px; vertical-align: middle;" />
+    <td width="33%" valign="top">
+      <h3><font color="#2563EB">⚙️ Reporting Automation</font></h3>
+      <sub><font color="#9CA3AF">Python pipelines that eliminate manual reporting — Excel, PDF, email-ready.</font></sub>
     </td>
-    <td width="34%" valign="top" style="border: none; padding: 0 0 0 12px;">
-      <h3><font color="#06B6D4">🧠 IA & Automatización</font></h3>
-      <p><small style="color: #6b7280;">Modelado predictivo, pipelines ETL y control de calidad de código.</small></p>
-      <img src="https://skillicons.dev/icons?i=git,github,vscode&theme=dark" alt="Git, GitHub, VSCode" />
+    <td width="34%" valign="top">
+      <h3><font color="#06B6D4">🌐 Landing + Analytics</font></h3>
+      <sub><font color="#9CA3AF">Conversion pages with tracking that actually measures what matters.</font></sub>
     </td>
   </tr>
 </table>
 
 ---
 
-## 🚀 Proyectos Destacados
+<!-- ======================== STACK ====================== -->
+<h2 id="stack">🧰 Stack</h2>
 
-### 📊 1. [EMICRON 2024 — Micronegocios Colombia](https://github.com/dmetrics1/micronegocios-colombia-2024)
-*Minería de patrones y análisis ponderado de **5.3 millones de micronegocios** en Colombia (DANE).*
-
-![R](https://img.shields.io/badge/R-7C3AED?style=flat-square&logo=r&logoColor=white)
-![Quarto](https://img.shields.io/badge/Quarto-06B6D4?style=flat-square&logo=quarto&logoColor=white)
-![data.table](https://img.shields.io/badge/data.table-2563EB?style=flat-square)
-![Apriori](https://img.shields.io/badge/Algoritmo_Apriori-10B981?style=flat-square)
-
-- **Pipeline Estadístico**: Integración de microdatos oficiales de 77K registros y minería de reglas de asociación (**Apriori**) en R para estudiar la adopción TIC.
-- **Reportería Premium**: Reporte interactivo en **Quarto HTML** con CSS Grid/SCSS que visualiza **85 cuadros oficiales** validados con precisión matemática.
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="22%" valign="top"><sub><font color="#9CA3AF">Languages</font></sub></td>
+    <td valign="top">
+      <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&amp;logo=python&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/R-276DC3?style=flat-square&amp;logo=r&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/SQL-003B57?style=flat-square&amp;logo=postgresql&amp;logoColor=white" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><font color="#9CA3AF">Analysis &amp; Modeling</font></sub></td>
+    <td valign="top">
+      <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&amp;logo=pandas&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&amp;logo=numpy&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&amp;logo=scikitlearn&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/statsmodels-4B5FA8?style=flat-square" />
+      <img src="https://img.shields.io/badge/Polars-CD792C?style=flat-square&amp;logo=polars&amp;logoColor=white" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><font color="#9CA3AF">Visualization &amp; Product</font></sub></td>
+    <td valign="top">
+      <img src="https://img.shields.io/badge/Power_BI-F2C94C?style=flat-square&amp;logo=powerbi&amp;logoColor=black" />
+      <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&amp;logo=streamlit&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&amp;logo=plotly&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/Quarto-06B6D4?style=flat-square&amp;logo=quarto&amp;logoColor=white" />
+    </td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><font color="#9CA3AF">Data &amp; Environment</font></sub></td>
+    <td valign="top">
+      <img src="https://img.shields.io/badge/PostgreSQL-2563EB?style=flat-square&amp;logo=postgresql&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" />
+      <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&amp;logo=git&amp;logoColor=white" />
+    </td>
+  </tr>
+</table>
 
 ---
 
-### 📈 2. [Dashboard de Mercado Laboral](https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano)
-*Plataforma interactiva para análisis territorial de la GEIH (DANE) · 2022–2025.*
+<!-- ======================== PROJECTS ====================== -->
+<h2 id="projects">📌 Featured Projects</h2>
 
-![Python](https://img.shields.io/badge/Python-2563EB?style=flat-square&logo=python&logoColor=white)
-![Polars](https://img.shields.io/badge/Polars-06B6D4?style=flat-square)
-![pytest](https://img.shields.io/badge/pytest-7C3AED?style=flat-square&logo=pytest&logoColor=white)
-![ETL](https://img.shields.io/badge/ETL_Pipeline-10B981?style=flat-square)
+<sub><font color="#9CA3AF">The three that best summarize what I do:</font></sub>
 
-- **Ingeniería de Datos**: Pipeline ETL con **Polars** que consolida 24 dimensiones analíticas territoriales y salariales ponderadas (`FEX_C18`).
-- **Garantía de Calidad**: **25 pruebas unitarias automatizadas** con pytest que verifican la precisión matemática de métricas salariales e índices económicos.
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="38%" valign="top">
+      <a href="https://github.com/dmetrics1/dashboard_mercado_laboral_colombiano"><b><font color="#2563EB">dashboard-mercado-laboral-co</font></b></a>
+    </td>
+    <td valign="top">
+      <sub>Colombian labor-market interactive dashboard — DANE/GEIH microdata, Polars ETL, 25 pytest checks.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <a href="https://github.com/dmetrics1/micronegocios-colombia-2024"><b><font color="#2563EB">micronegocios-colombia-2024</font></b></a>
+    </td>
+    <td valign="top">
+      <sub>Association-rules mining (Apriori) over 5.3M Colombian micro-businesses — R + Quarto report.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <a href="https://github.com/dmetrics1/colombia-multidimensional-poverty-pca"><b><font color="#2563EB">colombia-multidimensional-poverty-pca</font></b></a>
+    </td>
+    <td valign="top">
+      <sub>PCA-based multidimensional poverty index by department — econometric dimension reduction in R.</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
-### 📉 3. [PCA Pobreza Multidimensional](https://github.com/dmetrics1/colombia-multidimensional-poverty-pca)
-*Modelación econométrica de reducción dimensional para perfilar vulnerabilidad y exclusión.*
+<!-- ======================== STATS ====================== -->
+<h2 id="stats">📈 GitHub Stats</h2>
 
-![R](https://img.shields.io/badge/R-7C3AED?style=flat-square&logo=r&logoColor=white)
-![PCA](https://img.shields.io/badge/PCA-2563EB?style=flat-square)
-![Econometría](https://img.shields.io/badge/Econometría-06B6D4?style=flat-square)
-
-- **Análisis Multivariante**: Aplicación de **Componentes Principales (PCA)** para construir índices sintéticos de pobreza departamental en Colombia, reduciendo la dimensionalidad de las carencias del hogar.
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="50%" valign="top">
+      <img
+        src="https://github-stats-extended.vercel.app/api/top-langs?username=dmetrics1&amp;layout=compact&amp;langs_count=5&amp;theme=dark&amp;bg_color=0A0E1A&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=131C31&amp;border_radius=12"
+        alt="Top Languages" width="100%" />
+    </td>
+    <td width="50%" valign="top">
+      <img
+        src="https://github-stats-extended.vercel.app/api?username=dmetrics1&amp;show_icons=true&amp;theme=dark&amp;bg_color=0A0E1A&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=131C31&amp;border_radius=12&amp;include_all_commits=true&amp;count_private=true"
+        alt="GitHub Stats" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 📈 Actividad y Contribuciones
+<!-- ======================== CONTACT ====================== -->
+<h2 id="contact" align="center">📬 Let's talk</h2>
 
 <p align="center">
-  <img
-    src="https://streak-stats.demolab.com?user=dmetrics1&theme=dark&background=111827&border=1f2937&ring=7c3aed&fire=06b6d4&currStreakNum=e5e7eb&sideLabels=9ca3af&border_radius=12"
-    alt="GitHub Streak"
-    width="80%"
-    style="border-radius: 12px;"
-  />
+  <i><font color="#E5E7EB">Have data sitting idle that should be driving decisions?</font></i>
 </p>
 
 <p align="center">
-  <img
-    src="https://github-readme-activity-graph.vercel.app/graph?username=dmetrics1&bg_color=111827&color=7c3aed&line=06b6d4&point=e5e7eb&area=true&hide_border=true&border_radius=12"
-    alt="Activity Graph"
-    width="100%"
-    style="border-radius: 12px;"
-  />
-</p>
-
----
-
-## 📬 Conectemos
-
-<p align="center">
-  ¿Tienes un proyecto de análisis, automatización o dashboard que quieras llevar al siguiente nivel?
-</p>
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-7C3AED?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  &nbsp;
-  <a href="mailto:dm0025900@gmail.com">
-    <img src="https://img.shields.io/badge/Email-06B6D4?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  &nbsp;
-  <a href="https://github.com/dmetrics1" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-2563EB?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
+  Write me at <a href="mailto:hola@danielmolina.co"><b><font color="#06B6D4">hola@danielmolina.co</font></b></a> — first diagnostic call is free.
 </p>
 
 <br />
 
 <p align="center">
-  <sub style="color: #374151;">Diseñado con la identidad de marca oficial de Daniel Molina Barrios © 2026.</sub>
+  <sub><font color="#6B7280">© 2026 Daniel Molina Barrios · Built with brand identity v2 · <a href="https://github.com/dmetrics1/personal-landing" style="color:#6B7280;">danielmolina.co</a></font></sub>
 </p>
