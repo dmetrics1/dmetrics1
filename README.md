@@ -27,7 +27,7 @@
 <h2 id="about">👤 About me</h2>
 
 - 🎓 **Economist** (Universidad del Magdalena) turned **Data Scientist**
-- 🇨🇴 Based in **Santa Marta, Colombia** · Working remote across **LATAM** and beyond
+- 📍 Based in **Santa Marta, Colombia** · Working remote across **LATAM** and beyond
 - 📊 Built ML, econometric and dimensionality-reduction models on Colombian public microdata — **DANE · GEIH · EMICRON**
 - 🛠️ Daily stack: **Python · R · SQL · Polars · Machine Learning · Power BI · Streamlit · Quarto**
 - 💼 Open for freelance — **Toptal / Upwork / direct hire**
