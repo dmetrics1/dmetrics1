@@ -4,7 +4,7 @@
 <img src="./assets/hero-banner.svg" alt="Daniel Molina — Economist, Data Scientist and AI Builder. Transforming data into products, solutions and decisions." width="100%" />
 
 <p>
-  <a href="https://github.com/dmetrics1/personal-landing">
+  <a href="https://dmetrics1.github.io/personal-landing/">
     <img src="https://img.shields.io/badge/PORTFOLIO-7C3AED?style=for-the-badge" alt="Portfolio" />
   </a>
   &nbsp;
