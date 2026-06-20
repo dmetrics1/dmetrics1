@@ -1,9 +1,7 @@
 <!-- ======================== HERO ======================== -->
 <div align="center">
 
-<img src="./assets/hero-banner.svg" alt="Daniel Molina — Economist and Data Scientist. I turn data into solutions, products, and decisions." width="100%" />
-
-<br /><br />
+<img src="./assets/hero-banner.svg" alt="Daniel Molina — Economist, Data Scientist and AI Builder. Transforming data into products, solutions and decisions." width="100%" />
 
 <p>
   <a href="https://github.com/dmetrics1/personal-landing">
@@ -30,10 +28,10 @@
 
 - 🎓 **Economist** (Universidad del Magdalena) turned **Data Scientist**
 - 🇨🇴 Based in **Santa Marta, Colombia** · Working remote across **LATAM** and beyond
-- 📊 Built ML, PCA and econometric models on Colombian public microdata — **DANE · GEIH · EMICRON**
-- 🛠️ Daily stack: **Python · R · SQL · Polars · Power BI · Streamlit · Quarto**
+- 📊 Built ML, econometric and dimensionality-reduction models on Colombian public microdata — **DANE · GEIH · EMICRON**
+- 🛠️ Daily stack: **Python · R · SQL · Polars · Machine Learning · Power BI · Streamlit · Quarto**
 - 💼 Open for freelance — **Toptal / Upwork / direct hire**
-- ✍️ Philosophy: *data isn't the goal, it's the medium — the value lives in the **solution***
+- ✍️ Philosophy: *data isn't the goal — it's the raw material; the value lives in what you **build with it***
 
 ---
 
