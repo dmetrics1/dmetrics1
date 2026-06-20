@@ -1,26 +1,3 @@
-<!-- ====================== NAVBAR ====================== -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="left">
-      <a href="https://github.com/dmetrics1" style="text-decoration:none;">
-        <img src="./logo.svg" alt="DM" width="40" align="absmiddle" />
-        &nbsp;<span style="font-size:1.45em;font-weight:800;color:#F9FAFB;letter-spacing:-0.5px;">DANIEL<font color="#2563EB">MOLINA</font></span>
-      </a>
-    </td>
-    <td align="right">
-      <sub>
-        <a href="#about" style="color:#9CA3AF;text-decoration:none;font-weight:600;">About</a> &nbsp;·&nbsp;
-        <a href="#services" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Services</a> &nbsp;·&nbsp;
-        <a href="#stack" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Stack</a> &nbsp;·&nbsp;
-        <a href="#projects" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Projects</a> &nbsp;·&nbsp;
-        <a href="#contact" style="color:#9CA3AF;text-decoration:none;font-weight:600;">Contact</a>
-      </sub>
-    </td>
-  </tr>
-</table>
-
-<br />
-
 <!-- ======================== HERO ======================== -->
 <div align="center">
 
