@@ -7,19 +7,19 @@
 
 <sub><font color="#9CA3AF">Economist &amp; Data Scientist · LATAM remote</font></sub>
 
-### <font color="#E5E7EB">I turn data into <font color="#10B981">solutions</font>, <font color="#2563EB">products</font>, and <font color="#06B6D4">decisions</font>.</font>
+<h3 align="center"><font color="#E5E7EB">I turn data into </font><font color="#10B981">solutions</font><font color="#E5E7EB">, </font><font color="#2563EB">products</font><font color="#E5E7EB">, and </font><font color="#06B6D4">decisions</font><font color="#E5E7EB">.</font></h3>
 
 <p>
   <a href="https://github.com/dmetrics1/personal-landing">
-    <img src="https://img.shields.io/badge/%E2%97%8B%20Portfolio-7C3AED?style=for-the-badge&amp;labelColor=0A0E1A" alt="Portfolio" />
+    <img src="https://img.shields.io/badge/Portfolio-7C3AED?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=githubpages&amp;logoColor=white" alt="Portfolio" />
   </a>
   &nbsp;
   <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/">
-    <img src="https://img.shields.io/badge/in%20LinkedIn-2563EB?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-2563EB?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=linkedin&amp;logoColor=white" alt="LinkedIn" />
   </a>
   &nbsp;
   <a href="mailto:hola@danielmolina.co">
-    <img src="https://img.shields.io/badge/%E2%9C%89%20Email-06B6D4?style=for-the-badge&amp;labelColor=0A0E1A" alt="Email" />
+    <img src="https://img.shields.io/badge/Email-06B6D4?style=for-the-badge&amp;labelColor=0A0E1A&amp;logo=gmail&amp;logoColor=white" alt="Email" />
   </a>
 </p>
 
