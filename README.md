@@ -26,11 +26,14 @@
 ---
 
 <!-- ======================== ABOUT ======================== -->
-<h2 id="about">👤 About</h2>
+<h2 id="about">👤 About me</h2>
 
-Economist turned **Data Scientist**. I build data-driven solutions for teams across LATAM: dashboards that read at a glance, pipelines that replace manual work, and models that back real decisions. I don't ship pretty charts — I ship **faster, cheaper decisions**.
-
-Based in Santa Marta, Colombia 🇨🇴 · Working remote across LATAM and beyond.
+- 🎓 **Economist** (Universidad del Magdalena) turned **Data Scientist**
+- 🇨🇴 Based in **Santa Marta, Colombia** · Working remote across **LATAM** and beyond
+- 📊 Built ML, PCA and econometric models on Colombian public microdata — **DANE · GEIH · EMICRON**
+- 🛠️ Daily stack: **Python · R · SQL · Polars · Power BI · Streamlit · Quarto**
+- 💼 Open for freelance — **Toptal / Upwork / direct hire**
+- ✍️ Philosophy: *data isn't the goal, it's the medium — the value lives in the **solution***
 
 ---
 

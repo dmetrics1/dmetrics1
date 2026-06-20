@@ -1,86 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" role="img" aria-label="Daniel Molina — Economist and Data Scientist. I turn data into solutions, products, and decisions.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" width="1500" height="500" role="img" aria-label="Daniel Molina — Economist and Data Scientist. I turn data into solutions, products, and decisions.">
   <defs>
-    <!-- Brand gradient: violet -> blue -> cyan, matching the DM logo -->
-    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Brand diagonal gradient: violet -> blue -> cyan (the DM logo gradient) -->
+    <linearGradient id="brandBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C3AED" />
-      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="55%" stop-color="#2563EB" />
       <stop offset="100%" stop-color="#06B6D4" />
     </linearGradient>
 
-    <!-- Slightly darker gradient for soft inner glow -->
-    <radialGradient id="innerGlow" cx="50%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#131C31" stop-opacity="0.65" />
+    <!-- Logo gradient (lighter, for the DM monogram) -->
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9FAFB" />
+      <stop offset="100%" stop-color="#E5E7EB" />
+    </linearGradient>
+
+    <!-- Glow for depth -->
+    <radialGradient id="glow" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#F9FAFB" stop-opacity="0.10" />
       <stop offset="100%" stop-color="#0A0E1A" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Mask gradient for the "decisions" word emphasis -->
-    <linearGradient id="wordGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="50%" stop-color="#2563EB" />
-      <stop offset="100%" stop-color="#06B6D4" />
-    </linearGradient>
+    <!-- Subtle dot pattern -->
+    <pattern id="dots" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#F9FAFB" opacity="0.06" />
+    </pattern>
   </defs>
 
-  <!-- Canvas (premium dark) -->
-  <rect x="0" y="0" width="1200" height="460" fill="#0A0E1A" rx="24" ry="24" />
+  <!-- Brand-gradient canvas -->
+  <rect x="0" y="0" width="1500" height="500" fill="url(#brandBg)" rx="24" ry="24" />
 
-  <!-- Gradient border ring (outer) -->
-  <rect x="3" y="3" width="1194" height="454" rx="22" ry="22"
-        fill="none" stroke="url(#brandGrad)" stroke-width="3" />
+  <!-- Dot pattern overlay (texture) -->
+  <rect x="0" y="0" width="1500" height="500" fill="url(#dots)" rx="24" ry="24" />
 
-  <!-- Soft inner glow -->
-  <rect x="3" y="3" width="1194" height="454" rx="22" ry="22" fill="url(#innerGlow)" />
+  <!-- Center glow -->
+  <rect x="0" y="0" width="1500" height="500" fill="url(#glow)" rx="24" ry="24" />
 
-  <!-- Subtle inner stroke for premium depth -->
-  <rect x="14" y="14" width="1172" height="432" rx="16" ry="16"
-        fill="none" stroke="#131C31" stroke-width="1" />
+  <!-- Decorative geometric shapes (echoes of brand kit) -->
+  <!-- Top-left rhombus -->
+  <g opacity="0.18">
+    <rect x="-60" y="-60" width="180" height="180" fill="#F9FAFB" transform="rotate(45 30 30)" rx="14" />
+  </g>
+  <!-- Bottom-right rhombus -->
+  <g opacity="0.18">
+    <rect x="1380" y="380" width="200" height="200" fill="#F9FAFB" transform="rotate(45 1480 480)" rx="16" />
+  </g>
+  <!-- Small accent circle top-right -->
+  <circle cx="1380" cy="80" r="48" fill="#10B981" opacity="0.55" />
+  <!-- Small accent triangle bottom-left -->
+  <polygon points="60,420 160,420 110,360" fill="#10B981" opacity="0.55" />
 
-  <!-- Eyebrow: DATA · DASHBOARDS · AI · AUTOMATION -->
-  <text x="600" y="100"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
-        font-size="18" font-weight="700" letter-spacing="6"
-        fill="#06B6D4" text-anchor="middle">
-    DATA  ·  DASHBOARDS  ·  AI  ·  AUTOMATION
-  </text>
+  <!-- DM Logo monogram (left side) -->
+  <g transform="translate(140 130)">
+    <!-- Background plate -->
+    <rect x="-20" y="-20" width="240" height="240" fill="#0A0E1A" opacity="0.35" rx="32" ry="32" />
+    <!-- D shape -->
+    <path d="M 30 30 L 30 190 L 90 190 Q 150 190 150 110 Q 150 30 90 30 Z"
+          fill="none" stroke="url(#logoGrad)" stroke-width="20" stroke-linejoin="round" />
+    <!-- M shape (stylized) -->
+    <path d="M 110 30 L 110 190 M 110 30 L 160 100 L 210 30 L 210 190"
+          fill="none" stroke="url(#logoGrad)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
 
-  <!-- Main H1: Daniel Molina -->
-  <text x="600" y="200"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
-        font-size="84" font-weight="800" letter-spacing="-2"
-        fill="#F9FAFB" text-anchor="middle">
-    Daniel Molina
-  </text>
+  <!-- Wordmark + tagline (right side) -->
+  <g transform="translate(440 0)">
+    <!-- Eyebrow -->
+    <text x="0" y="140"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+          font-size="20" font-weight="700" letter-spacing="6"
+          fill="#F9FAFB" opacity="0.85">
+      DATA  ·  DASHBOARDS  ·  AI  ·  AUTOMATION
+    </text>
 
-  <!-- Subtitle -->
-  <text x="600" y="240"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
-        font-size="18" font-weight="500" letter-spacing="2"
-        fill="#9CA3AF" text-anchor="middle">
-    Economist  ·  Data Scientist  ·  LATAM remote
-  </text>
+    <!-- DANIEL MOLINA wordmark -->
+    <text x="0" y="240"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+          font-size="92" font-weight="900" letter-spacing="-3"
+          fill="#F9FAFB">
+      DANIEL MOLINA
+    </text>
 
-  <!-- Tagline (colored words) -->
-  <text x="600" y="320"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
-        font-size="30" font-weight="700"
-        fill="#E5E7EB" text-anchor="middle">
-    <tspan>I turn data into </tspan>
-    <tspan fill="#10B981">solutions</tspan>
-    <tspan>, </tspan>
-    <tspan fill="#2563EB">products</tspan>
-    <tspan>, and </tspan>
-    <tspan fill="#06B6D4">decisions</tspan>
-    <tspan>.</tspan>
-  </text>
+    <!-- Role line -->
+    <text x="0" y="290"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+          font-size="22" font-weight="600" letter-spacing="3"
+          fill="#F9FAFB" opacity="0.78">
+      ECONOMIST  ·  DATA SCIENTIST  ·  LATAM REMOTE
+    </text>
 
-  <!-- Decorative divider line (gradient) -->
-  <line x1="500" y1="370" x2="700" y2="370" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" />
+    <!-- Decorative divider -->
+    <line x1="0" y1="320" x2="80" y2="320" stroke="#10B981" stroke-width="4" stroke-linecap="round" />
 
-  <!-- Footer micro-line inside the container -->
-  <text x="600" y="410"
-        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
-        font-size="14" font-weight="500" letter-spacing="3"
-        fill="#6B7280" text-anchor="middle">
-    BUILT WITH BRAND IDENTITY  ·  v2
-  </text>
+    <!-- Tagline -->
+    <text x="0" y="380"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+          font-size="32" font-weight="700"
+          fill="#F9FAFB">
+      I turn data into solutions, products,
+    </text>
+    <text x="0" y="425"
+          font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+          font-size="32" font-weight="700"
+          fill="#F9FAFB">
+      and <tspan font-style="italic" fill="#10B981">decisions</tspan>.
+    </text>
+  </g>
 </svg>
