@@ -137,26 +137,6 @@ Based in Santa Marta, Colombia 🇨🇴 · Working remote across LATAM and beyon
 
 ---
 
-<!-- ======================== STATS ====================== -->
-<h2 id="stats">📈 GitHub Stats</h2>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="50%" valign="top">
-      <img
-        src="https://github-stats-extended.vercel.app/api/top-langs?username=dmetrics1&amp;layout=compact&amp;langs_count=5&amp;theme=dark&amp;bg_color=0A0E1A&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=131C31&amp;border_radius=12"
-        alt="Top Languages" width="100%" />
-    </td>
-    <td width="50%" valign="top">
-      <img
-        src="https://github-stats-extended.vercel.app/api?username=dmetrics1&amp;show_icons=true&amp;theme=dark&amp;bg_color=0A0E1A&amp;title_color=7c3aed&amp;text_color=e5e7eb&amp;icon_color=06b6d4&amp;border_color=131C31&amp;border_radius=12&amp;include_all_commits=true&amp;count_private=true"
-        alt="GitHub Stats" width="100%" />
-    </td>
-  </tr>
-</table>
-
----
-
 <!-- ======================== CONTACT ====================== -->
 <h2 id="contact" align="center">📬 Let's talk</h2>
 
