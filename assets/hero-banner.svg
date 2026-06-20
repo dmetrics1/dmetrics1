@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" role="img" aria-label="Daniel Molina — Economist and Data Scientist. I turn data into solutions, products, and decisions.">
+  <defs>
+    <!-- Brand gradient: violet -> blue -> cyan, matching the DM logo -->
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+
+    <!-- Slightly darker gradient for soft inner glow -->
+    <radialGradient id="innerGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#131C31" stop-opacity="0.65" />
+      <stop offset="100%" stop-color="#0A0E1A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Mask gradient for the "decisions" word emphasis -->
+    <linearGradient id="wordGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas (premium dark) -->
+  <rect x="0" y="0" width="1200" height="460" fill="#0A0E1A" rx="24" ry="24" />
+
+  <!-- Gradient border ring (outer) -->
+  <rect x="3" y="3" width="1194" height="454" rx="22" ry="22"
+        fill="none" stroke="url(#brandGrad)" stroke-width="3" />
+
+  <!-- Soft inner glow -->
+  <rect x="3" y="3" width="1194" height="454" rx="22" ry="22" fill="url(#innerGlow)" />
+
+  <!-- Subtle inner stroke for premium depth -->
+  <rect x="14" y="14" width="1172" height="432" rx="16" ry="16"
+        fill="none" stroke="#131C31" stroke-width="1" />
+
+  <!-- Eyebrow: DATA · DASHBOARDS · AI · AUTOMATION -->
+  <text x="600" y="100"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+        font-size="18" font-weight="700" letter-spacing="6"
+        fill="#06B6D4" text-anchor="middle">
+    DATA  ·  DASHBOARDS  ·  AI  ·  AUTOMATION
+  </text>
+
+  <!-- Main H1: Daniel Molina -->
+  <text x="600" y="200"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+        font-size="84" font-weight="800" letter-spacing="-2"
+        fill="#F9FAFB" text-anchor="middle">
+    Daniel Molina
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="240"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+        font-size="18" font-weight="500" letter-spacing="2"
+        fill="#9CA3AF" text-anchor="middle">
+    Economist  ·  Data Scientist  ·  LATAM remote
+  </text>
+
+  <!-- Tagline (colored words) -->
+  <text x="600" y="320"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+        font-size="30" font-weight="700"
+        fill="#E5E7EB" text-anchor="middle">
+    <tspan>I turn data into </tspan>
+    <tspan fill="#10B981">solutions</tspan>
+    <tspan>, </tspan>
+    <tspan fill="#2563EB">products</tspan>
+    <tspan>, and </tspan>
+    <tspan fill="#06B6D4">decisions</tspan>
+    <tspan>.</tspan>
+  </text>
+
+  <!-- Decorative divider line (gradient) -->
+  <line x1="500" y1="370" x2="700" y2="370" stroke="url(#brandGrad)" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Footer micro-line inside the container -->
+  <text x="600" y="410"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif"
+        font-size="14" font-weight="500" letter-spacing="3"
+        fill="#6B7280" text-anchor="middle">
+    BUILT WITH BRAND IDENTITY  ·  v2
+  </text>
+</svg>

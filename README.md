@@ -1,13 +1,9 @@
 <!-- ======================== HERO ======================== -->
 <div align="center">
 
-<sub><b><font color="#06B6D4">DATA &nbsp;·&nbsp; DASHBOARDS &nbsp;·&nbsp; AI &nbsp;·&nbsp; AUTOMATION</font></b></sub>
+<img src="./assets/hero-banner.svg" alt="Daniel Molina — Economist and Data Scientist. I turn data into solutions, products, and decisions." width="100%" />
 
-<h1 style="font-size:2.6em;font-weight:800;letter-spacing:-1px;margin:6px 0 0 0;color:#F9FAFB;">Daniel Molina</h1>
-
-<sub><font color="#9CA3AF">Economist &amp; Data Scientist · LATAM remote</font></sub>
-
-<h3 align="center"><font color="#E5E7EB">I turn data into </font><font color="#10B981">solutions</font><font color="#E5E7EB">, </font><font color="#2563EB">products</font><font color="#E5E7EB">, and </font><font color="#06B6D4">decisions</font><font color="#E5E7EB">.</font></h3>
+<br /><br />
 
 <p>
   <a href="https://github.com/dmetrics1/personal-landing">
