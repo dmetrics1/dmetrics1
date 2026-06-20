@@ -49,8 +49,8 @@
       <sub><font color="#9CA3AF">Python pipelines that eliminate manual reporting — Excel, PDF, email-ready.</font></sub>
     </td>
     <td width="34%" valign="top">
-      <h3><font color="#06B6D4">🌐 Landing + Analytics</font></h3>
-      <sub><font color="#9CA3AF">Conversion pages with tracking that actually measures what matters.</font></sub>
+      <h3><font color="#06B6D4">🌐 Landing Pages</font></h3>
+      <sub><font color="#9CA3AF">Simple, fast pages to present and sell a product — mobile-first, ready to publish.</font></sub>
     </td>
   </tr>
 </table>
