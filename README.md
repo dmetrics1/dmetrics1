@@ -1,7 +1,7 @@
 <!-- ======================== HERO ======================== -->
 <div align="center">
 
-<img src="./assets/hero-banner.svg" alt="Daniel Molina — Economist, Data Scientist and AI Builder. Transforming data into products, solutions and decisions." width="100%" />
+<img src="./assets/banner-final.png" alt="Daniel Molina — Economista, Analista de Datos y AI Engineer. Construyo productos de datos e IA que convierten información en decisiones." width="100%" />
 
 <p>
   <a href="https://dmetrics1.github.io/personal-landing/">
