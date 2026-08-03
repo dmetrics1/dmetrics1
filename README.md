@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/PORTFOLIO-7C3AED?style=for-the-badge" alt="Portfolio" />
   </a>
   &nbsp;
-  <a href="https://www.linkedin.com/in/daniel-molina-b76a4323b/">
+  <a href="https://www.linkedin.com/in/danieljmolina/">
     <img src="https://img.shields.io/badge/LINKEDIN-2563EB?style=for-the-badge" alt="LinkedIn" />
   </a>
   &nbsp;
