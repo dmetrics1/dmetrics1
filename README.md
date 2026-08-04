@@ -1,11 +1,7 @@
 <!-- ======================== HERO ======================== -->
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dmetrics1/dmetrics1/master/assets/banner-final.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dmetrics1/dmetrics1/master/assets/hero_banner_final.png">
-  <img alt="Daniel Molina — Economista, Analista de Datos y AI Engineer" src="https://raw.githubusercontent.com/dmetrics1/dmetrics1/master/assets/hero_banner_final.png" width="100%">
-</picture>
+<img src="./assets/hero_banner_final.png" alt="Daniel Molina — Economista, Analista de Datos y AI Engineer. Construyo productos de datos e IA que convierten información en decisiones." width="100%" />
 
 <p>
   <a href="https://dmetrics1.github.io/personal-landing/">
