@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Nacimientos y Defunciones</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0b1120;
+    --surface: #131c2e;
+    --surface2: #1a2640;
+    --border: #1e3352;
+    --primary: #38bdf8;
+    --primary-dim: #0ea5e9;
+    --accent: #34d399;
+    --accent2: #a78bfa;
+    --accent3: #fb923c;
+    --danger: #f87171;
+    --warn: #fbbf24;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --text-muted: #64748b;
+    --card-radius: 14px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* Header */
+  .header { background: linear-gradient(135deg, #0f2044 0%, #0b1120 100%); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; }
+  .header-logo { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; color: #0b1120; flex-shrink: 0; }
+  .header-title { flex: 1; }
+  .header-title h1 { font-size: 16px; font-weight: 700; color: var(--text); }
+  .header-title p { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+  .header-badge { background: var(--accent); color: #0b1120; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Tabs */
+  .tabs { background: var(--surface); border-bottom: 1px solid var(--border); display: flex; gap: 0; overflow-x: auto; padding: 0 24px; }
+  .tab { padding: 14px 20px; font-size: 13px; font-weight: 600; color: var(--text-dim); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
+  .tab:hover { color: var(--text); background: rgba(56,189,248,0.05); }
+  .tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+  .tab-icon { margin-right: 6px; }
+
+  /* Filters */
+  .filters { background: var(--surface); padding: 12px 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; border-bottom: 1px solid var(--border); }
+  .filter-label { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; }
+  .filter-group { display: flex; align-items: center; gap: 6px; }
+  select, .filter-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font-size: 12px; padding: 7px 12px; border-radius: 8px; cursor: pointer; outline: none; transition: border-color 0.2s; }
+  select:hover, select:focus { border-color: var(--primary); }
+  .filter-btn { font-weight: 600; background: var(--primary); color: #0b1120; border-color: var(--primary); }
+  .filter-btn:hover { opacity: 0.9; }
+  .filter-reset { background: transparent; border: 1px solid var(--border); color: var(--text-dim); }
+
+  /* Main */
+  .main { padding: 20px 24px; max-width: 1600px; margin: 0 auto; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Section titles */
+  .section-header { display: flex; align-items: center; gap: 10px; margin: 24px 0 14px; }
+  .section-header h2 { font-size: 14px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.8px; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  .section-badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 700; }
+
+  /* Grid */
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g3-1 { grid-template-columns: 3fr 1fr; }
+  .g1-3 { grid-template-columns: 1fr 3fr; }
+  .g2-1 { grid-template-columns: 2fr 1fr; }
+  @media (max-width: 1200px) { .g4 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) { .g2,.g3,.g4,.g3-1,.g1-3,.g2-1 { grid-template-columns: 1fr; } .main { padding: 12px; } }
+
+  /* Cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 18px; box-shadow: var(--shadow); }
+  .card-sm { padding: 14px; }
+  .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .card-title { font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-subtitle { font-size: 10px; color: var(--text-muted); margin-top: 3px; }
+  .card-badge { font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 700; }
+  .badge-up { background: rgba(52,211,153,0.15); color: var(--accent); }
+  .badge-down { background: rgba(248,113,113,0.15); color: var(--danger); }
+  .badge-neutral { background: rgba(148,163,184,0.1); color: var(--text-dim); }
+  .badge-warn { background: rgba(251,191,36,0.15); color: var(--warn); }
+
+  /* KPI cards */
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 18px; position: relative; overflow: hidden; transition: transform 0.2s, border-color 0.2s; }
+  .kpi-card:hover { transform: translateY(-2px); border-color: rgba(56,189,248,0.3); }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .kpi-card.blue::before { background: linear-gradient(90deg, var(--primary), var(--accent)); }
+  .kpi-card.green::before { background: linear-gradient(90deg, var(--accent), #6ee7b7); }
+  .kpi-card.purple::before { background: linear-gradient(90deg, var(--accent2), #c4b5fd); }
+  .kpi-card.orange::before { background: linear-gradient(90deg, var(--accent3), #fdba74); }
+  .kpi-card.red::before { background: linear-gradient(90deg, var(--danger), #fca5a5); }
+  .kpi-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 12px; }
+  .kpi-icon.blue { background: rgba(56,189,248,0.12); }
+  .kpi-icon.green { background: rgba(52,211,153,0.12); }
+  .kpi-icon.purple { background: rgba(167,139,250,0.12); }
+  .kpi-icon.orange { background: rgba(251,146,60,0.12); }
+  .kpi-icon.red { background: rgba(248,113,113,0.12); }
+  .kpi-label { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-value { font-size: 32px; font-weight: 800; line-height: 1.1; margin: 4px 0 6px; letter-spacing: -1px; }
+  .kpi-value.blue { color: var(--primary); }
+  .kpi-value.green { color: var(--accent); }
+  .kpi-value.purple { color: var(--accent2); }
+  .kpi-value.orange { color: var(--accent3); }
+  .kpi-value.red { color: var(--danger); }
+  .kpi-change { font-size: 11px; display: flex; align-items: center; gap: 4px; }
+  .kpi-change.up { color: var(--accent); }
+  .kpi-change.down { color: var(--danger); }
+  .kpi-change.neutral { color: var(--text-muted); }
+
+  /* Chart containers */
+  .chart-wrap { position: relative; }
+  .chart-wrap canvas { max-height: 260px; }
+  .chart-wrap.tall canvas { max-height: 320px; }
+  .chart-wrap.short canvas { max-height: 200px; }
+
+  /* Special death section */
+  .death-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  @media (max-width: 1000px) { .death-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .death-grid { grid-template-columns: repeat(2, 1fr); } }
+  .death-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; transition: border-color 0.2s; }
+  .death-card:hover { border-color: rgba(248,113,113,0.4); }
+  .death-icon { font-size: 24px; margin-bottom: 6px; }
+  .death-label { font-size: 10px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.3; }
+  .death-value { font-size: 22px; font-weight: 800; color: var(--danger); margin: 4px 0; }
+  .death-sub { font-size: 10px; color: var(--text-muted); }
+
+  /* Maternal death cards */
+  .maternal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 800px) { .maternal-grid { grid-template-columns: 1fr; } }
+  .maternal-card { background: linear-gradient(135deg, #1a1430 0%, var(--surface2) 100%); border: 1px solid rgba(167,139,250,0.2); border-radius: 12px; padding: 16px; }
+  .maternal-card .m-icon { font-size: 28px; margin-bottom: 10px; }
+  .maternal-card .m-title { font-size: 12px; font-weight: 700; color: var(--accent2); margin-bottom: 6px; }
+  .maternal-card .m-value { font-size: 36px; font-weight: 900; color: var(--accent2); }
+  .maternal-card .m-desc { font-size: 10px; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+
+  /* Trend indicator */
+  .trend-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .trend-row:last-child { border-bottom: none; }
+  .trend-name { font-size: 12px; color: var(--text-dim); }
+  .trend-bar-wrap { flex: 1; margin: 0 12px; background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
+  .trend-bar { height: 100%; border-radius: 4px; }
+  .trend-val { font-size: 12px; font-weight: 700; min-width: 50px; text-align: right; }
+
+  /* Variation card */
+  .variation-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .variation-item:last-child { border-bottom: none; }
+  .var-month { font-size: 12px; color: var(--text-dim); width: 80px; flex-shrink: 0; }
+  .var-val { font-size: 13px; font-weight: 700; width: 60px; }
+  .var-val.up { color: var(--danger); }
+  .var-val.down { color: var(--accent); }
+  .var-arrow { font-size: 16px; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--surface); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* Tooltip override */
+  .chartjs-tooltip { background: rgba(11,17,32,0.95) !important; border: 1px solid var(--border) !important; border-radius: 8px !important; }
+
+  .mt-0 { margin-top: 0 !important; }
+  .span2 { grid-column: span 2; }
+  .span3 { grid-column: span 3; }
+  @media (max-width: 1200px) { .span2 { grid-column: span 1; } .span3 { grid-column: span 1; } }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logo">D</div>
+  <div class="header-title">
+    <h1>Sistema de Vigilancia · Nacimientos y Defunciones</h1>
+    <p>Estadísticas vitales · Colombia · Datos simulados de referencia</p>
+  </div>
+  <span class="header-badge">2024</span>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('nacimientos')"><span class="tab-icon">🍼</span>Nacimientos</div>
+  <div class="tab" onclick="switchTab('defunciones')"><span class="tab-icon">📋</span>Defunciones No Fetales</div>
+  <div class="tab" onclick="switchTab('fetales')"><span class="tab-icon">📊</span>Defunciones Fetales</div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <div class="filter-group"><span class="filter-label">Año</span>
+    <select id="f-year" onchange="applyFilters()"><option>2024</option><option>2023</option><option>2022</option><option>2021</option></select>
+  </div>
+  <div class="filter-group"><span class="filter-label">Mes</span>
+    <select id="f-month" onchange="applyFilters()">
+      <option value="0">Todos</option><option value="1">Enero</option><option value="2">Febrero</option>
+      <option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option>
+      <option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option>
+      <option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
+    </select>
+  </div>
+  <div class="filter-group"><span class="filter-label">Departamento</span>
+    <select id="f-dept" onchange="applyFilters()">
+      <option>Todos</option><option>Antioquia</option><option>Cundinamarca</option><option>Valle del Cauca</option>
+      <option>Bogotá D.C.</option><option>Atlántico</option><option>Santander</option><option>Bolívar</option>
+    </select>
+  </div>
+  <div class="filter-group"><span class="filter-label">Tipo</span>
+    <select id="f-tipo" onchange="applyFilters()"><option>Ocurrencia</option><option>Residencia</option></select>
+  </div>
+  <button class="filter-btn" onclick="applyFilters()">Aplicar</button>
+  <button class="filter-btn filter-reset" onclick="resetFilters()">Restablecer</button>
+  <span style="margin-left:auto;font-size:11px;color:var(--text-muted)">Última actualización: Oct 2024</span>
+</div>
+
+<div class="main">
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--                    NACIMIENTOS TAB                        -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="tab-nacimientos" class="tab-content active">
+
+  <!-- KPIs -->
+  <div class="grid g4">
+    <div class="kpi-card blue">
+      <div class="kpi-icon blue">🍼</div>
+      <div class="kpi-label">Total Nacimientos</div>
+      <div class="kpi-value blue" id="kpi-total-nac">647,382</div>
+      <div class="kpi-change up">▲ 2.4% vs año anterior</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-icon green">📍</div>
+      <div class="kpi-label">Por Ocurrencia</div>
+      <div class="kpi-value green" id="kpi-ocurrencia">623,418</div>
+      <div class="kpi-change up">▲ 1.8%</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-icon purple">🏠</div>
+      <div class="kpi-label">Por Residencia</div>
+      <div class="kpi-value purple" id="kpi-residencia">618,204</div>
+      <div class="kpi-change up">▲ 1.5%</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-icon orange">❌</div>
+      <div class="kpi-label">Certificados Anulados</div>
+      <div class="kpi-value orange" id="kpi-anulados">1,247</div>
+      <div class="kpi-change down">▼ 0.3% vs año anterior</div>
+    </div>
+  </div>
+
+  <!-- Monthly + Sex -->
+  <div class="section-header mt-0" style="margin-top:24px">
+    <h2>Tendencia Mensual</h2><div class="section-line"></div>
+  </div>
+  <div class="grid g3-1">
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Nacimientos por Mes</div><div class="card-subtitle">Ocurrencia vs Residencia</div></div>
+        <span class="card-badge badge-up">+2.4%</span>
+      </div>
+      <div class="chart-wrap"><canvas id="chartNacMes"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Por Sexo al Nacer</div></div>
+      <div class="chart-wrap"><canvas id="chartSexo"></canvas></div>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:10px;font-size:11px;color:var(--text-dim)">
+        <span style="color:#38bdf8">● Masculino 51.4%</span>
+        <span style="color:#f472b6">● Femenino 48.4%</span>
+        <span style="color:#94a3b8">● Indet. 0.2%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IPS + Sitio de parto -->
+  <div class="section-header"><h2>Lugar del Parto</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Top 10 IPS por Nacimientos</div></div>
+      <div class="chart-wrap tall"><canvas id="chartIPS"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Sitio de Parto</div></div>
+      <div class="chart-wrap"><canvas id="chartSitio"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Tipo de parto + País madre -->
+  <div class="section-header"><h2>Tipo de Parto & Origen</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Tipo de Parto</div></div>
+      <div class="chart-wrap"><canvas id="chartTipoParto"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">País de Nacimiento de la Madre</div></div>
+      <div class="chart-wrap"><canvas id="chartPais"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Edad madre -->
+  <div class="section-header"><h2>Perfil Demográfico de la Madre</h2><div class="section-line"></div></div>
+  <div class="card">
+    <div class="card-header"><div class="card-title">Nacimientos por Rango de Edad de la Madre</div></div>
+    <div class="chart-wrap"><canvas id="chartEdadMadre"></canvas></div>
+  </div>
+
+  <!-- Peso + Semanas + Educación -->
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Peso al Nacer</div></div>
+      <div class="chart-wrap"><canvas id="chartPeso"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Semana de Gestación</div></div>
+      <div class="chart-wrap"><canvas id="chartGestacion"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Pertenencia Étnico-Racial</div></div>
+      <div class="chart-wrap"><canvas id="chartEtnia"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Educación -->
+  <div class="section-header"><h2>Nivel Educativo</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Nivel Educativo de la Madre</div></div>
+      <div class="chart-wrap"><canvas id="chartEduMadre"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Nivel Educativo del Padre</div></div>
+      <div class="chart-wrap"><canvas id="chartEduPadre"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Muertes perinatales -->
+  <div class="section-header"><h2>Muertes por Edad del Fallecido</h2><div class="section-line"><span style="padding:0 10px;font-size:11px;color:var(--text-muted)">Registradas en certificados de nacimiento</span></div></div>
+  <div class="death-grid">
+    <div class="death-card">
+      <div class="death-icon">⚠️</div>
+      <div class="death-value">8,241</div>
+      <div class="death-label">Abortos</div>
+      <div class="death-sub">&lt;22 sem / &lt;500g</div>
+    </div>
+    <div class="death-card">
+      <div class="death-icon">💔</div>
+      <div class="death-value">4,183</div>
+      <div class="death-label">Mortinatos</div>
+      <div class="death-sub">≥500g / &gt;22 sem</div>
+    </div>
+    <div class="death-card">
+      <div class="death-icon">🔴</div>
+      <div class="death-value">2,917</div>
+      <div class="death-label">Perinatales</div>
+      <div class="death-sub">≥22 sem a 7 días</div>
+    </div>
+    <div class="death-card">
+      <div class="death-icon">🟠</div>
+      <div class="death-value">1,654</div>
+      <div class="death-label">Neonatales</div>
+      <div class="death-sub">Hasta 28 días</div>
+    </div>
+    <div class="death-card">
+      <div class="death-icon">👶</div>
+      <div class="death-value">3,291</div>
+      <div class="death-label">Muerte Infantil</div>
+      <div class="death-sub">&lt;1 año de edad</div>
+    </div>
+  </div>
+
+  <!-- Muertes maternas -->
+  <div class="section-header" style="margin-top:24px"><h2>Muertes en Mujeres Embarazadas</h2><div class="section-line"></div></div>
+  <div class="maternal-grid">
+    <div class="maternal-card">
+      <div class="m-icon">💜</div>
+      <div class="m-title">Muerte Materna</div>
+      <div class="m-value">487</div>
+      <div class="m-desc">Mujer embarazada o dentro de los 42 días post-terminación del embarazo, por causas relacionadas con el embarazo.</div>
+    </div>
+    <div class="maternal-card">
+      <div class="m-icon">⏳</div>
+      <div class="m-title">Defunción Materna Tardía</div>
+      <div class="m-value">142</div>
+      <div class="m-desc">Causas obstétricas directas o indirectas después de 42 días, antes de un año de la terminación del embarazo.</div>
+    </div>
+    <div class="maternal-card">
+      <div class="m-icon">📌</div>
+      <div class="m-title">Defunción Durante Embarazo/Parto/Puerperio</div>
+      <div class="m-value">631</div>
+      <div class="m-desc">Muerte de mujer embarazada o dentro de 42 días, independientemente de la causa (obstétrica o no).</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--                DEFUNCIONES NO FETALES TAB                 -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="tab-defunciones" class="tab-content">
+
+  <div class="grid g4">
+    <div class="kpi-card red">
+      <div class="kpi-icon red">📋</div>
+      <div class="kpi-label">Total Defunciones NF</div>
+      <div class="kpi-value red">241,837</div>
+      <div class="kpi-change down">▼ 3.1% vs año anterior</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-icon blue">📍</div>
+      <div class="kpi-label">Por Ocurrencia</div>
+      <div class="kpi-value blue">231,204</div>
+      <div class="kpi-change down">▼ 2.8%</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-icon purple">🏠</div>
+      <div class="kpi-label">Por Residencia</div>
+      <div class="kpi-value purple">228,917</div>
+      <div class="kpi-change down">▼ 2.5%</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-icon orange">📈</div>
+      <div class="kpi-label">Tasa x 100.000 hab</div>
+      <div class="kpi-value orange">463.2</div>
+      <div class="kpi-change down">▼ 4.2%</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:24px"><h2>Tendencia Mensual</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Defunciones por Mes</div><div class="card-subtitle">Ocurrencia vs Residencia</div></div>
+        <span class="card-badge badge-down">-3.1%</span>
+      </div>
+      <div class="chart-wrap"><canvas id="chartDefMes"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Variación Interanual por Mes</div><div class="card-subtitle">2024 vs 2023</div></div>
+      <div class="chart-wrap"><canvas id="chartVariacion"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Clasificación</h2><div class="section-line"></div></div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Tipo de Defunción</div><div class="card-subtitle">Natural vs No Natural</div></div>
+      <div class="chart-wrap"><canvas id="chartTipoDef"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Por Sexo del Fallecido</div></div>
+      <div class="chart-wrap"><canvas id="chartSexoDef"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Grupo Étnico-Racial</div></div>
+      <div class="chart-wrap"><canvas id="chartEtniaDef"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Por Institución & Ciclo de Vida</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Top 10 IPS por Defunciones</div></div>
+      <div class="chart-wrap tall"><canvas id="chartIPSDef"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">% Defunciones por Ciclo de Vida</div></div>
+      <div class="chart-wrap"><canvas id="chartCiclo"></canvas></div>
+      <div style="margin-top:12px">
+        <div class="trend-row"><span class="trend-name">Primera Infancia (0-5)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:8%;background:var(--danger)"></div></div><span class="trend-val" style="color:var(--danger)">8.2%</span></div>
+        <div class="trend-row"><span class="trend-name">Infancia (6-11)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:3%;background:#fb923c"></div></div><span class="trend-val" style="color:#fb923c">2.8%</span></div>
+        <div class="trend-row"><span class="trend-name">Adolescencia (12-17)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:5%;background:#fbbf24"></div></div><span class="trend-val" style="color:#fbbf24">4.6%</span></div>
+        <div class="trend-row"><span class="trend-name">Juventud (18-28)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:10%;background:#34d399"></div></div><span class="trend-val" style="color:#34d399">9.8%</span></div>
+        <div class="trend-row"><span class="trend-name">Adultez (29-59)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:32%;background:#38bdf8"></div></div><span class="trend-val" style="color:#38bdf8">31.4%</span></div>
+        <div class="trend-row"><span class="trend-name">Vejez (60+)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:43%;background:#a78bfa"></div></div><span class="trend-val" style="color:#a78bfa">43.2%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--                DEFUNCIONES FETALES TAB                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div id="tab-fetales" class="tab-content">
+
+  <div class="grid g4">
+    <div class="kpi-card red">
+      <div class="kpi-icon red">📊</div>
+      <div class="kpi-label">Total Def. Fetales</div>
+      <div class="kpi-value red">12,843</div>
+      <div class="kpi-change down">▼ 1.8% vs año anterior</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-icon blue">📍</div>
+      <div class="kpi-label">Por Ocurrencia</div>
+      <div class="kpi-value blue">12,314</div>
+      <div class="kpi-change down">▼ 1.5%</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-icon purple">🏠</div>
+      <div class="kpi-label">Por Residencia</div>
+      <div class="kpi-value purple">12,108</div>
+      <div class="kpi-change down">▼ 1.3%</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-icon orange">📈</div>
+      <div class="kpi-label">Tasa x 1.000 NV</div>
+      <div class="kpi-value orange">19.8</div>
+      <div class="kpi-change down">▼ 2.1%</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:24px"><h2>Tendencia Mensual</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header">
+        <div><div class="card-title">Defunciones Fetales por Mes</div><div class="card-subtitle">Ocurrencia vs Residencia</div></div>
+        <span class="card-badge badge-down">-1.8%</span>
+      </div>
+      <div class="chart-wrap"><canvas id="chartFetMes"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Variación Interanual por Mes</div><div class="card-subtitle">2024 vs 2023</div></div>
+      <div class="chart-wrap"><canvas id="chartVariacionFet"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Clasificación</h2><div class="section-line"></div></div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Tipo de Defunción</div><div class="card-subtitle">Natural vs No Natural</div></div>
+      <div class="chart-wrap"><canvas id="chartTipoFet"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Por Sexo del Fallecido</div></div>
+      <div class="chart-wrap"><canvas id="chartSexoFet"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">Grupo Étnico-Racial</div></div>
+      <div class="chart-wrap"><canvas id="chartEtniaFet"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-header"><h2>Por Institución & Ciclo de Vida</h2><div class="section-line"></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">Top 10 IPS por Def. Fetales</div></div>
+      <div class="chart-wrap tall"><canvas id="chartIPSFet"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">% Defunciones Fetales por Ciclo de Vida</div></div>
+      <div class="chart-wrap"><canvas id="chartCicloFet"></canvas></div>
+      <div style="margin-top:12px">
+        <div class="trend-row"><span class="trend-name">Aborto (&lt;22 sem)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:42%;background:var(--danger)"></div></div><span class="trend-val" style="color:var(--danger)">42.1%</span></div>
+        <div class="trend-row"><span class="trend-name">Mortinatos (22+ sem)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:38%;background:#fb923c"></div></div><span class="trend-val" style="color:#fb923c">38.3%</span></div>
+        <div class="trend-row"><span class="trend-name">Perinatales (0-7 días)</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:15%;background:#fbbf24"></div></div><span class="trend-val" style="color:#fbbf24">14.8%</span></div>
+        <div class="trend-row"><span class="trend-name">Sin clasificar</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:5%;background:#64748b"></div></div><span class="trend-val" style="color:#64748b">4.8%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<script>
+// ─── Theme & Defaults ───────────────────────────────────────
+Chart.defaults.color = '#94a3b8';
+Chart.defaults.borderColor = '#1e3352';
+Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+Chart.defaults.font.size = 11;
+
+const MONTHS = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+const PALETTE = ['#38bdf8','#34d399','#a78bfa','#fb923c','#f87171','#fbbf24','#e879f9','#4ade80','#60a5fa','#f472b6'];
+const PALETTE2 = ['#0ea5e9','#10b981','#8b5cf6','#f97316','#ef4444','#d97706','#d946ef','#22c55e','#3b82f6','#ec4899'];
+
+function mkGrad(ctx, color1, color2='transparent') {
+  const g = ctx.createLinearGradient(0,0,0,260);
+  g.addColorStop(0, color1+'44');
+  g.addColorStop(1, color2);
+  return g;
+}
+
+const opts = {
+  responsive:true, maintainAspectRatio:true,
+  plugins:{ legend:{ display:false }, tooltip:{ backgroundColor:'rgba(11,17,32,0.95)', titleColor:'#e2e8f0', bodyColor:'#94a3b8', borderColor:'#1e3352', borderWidth:1, padding:10, cornerRadius:8 } },
+  scales:{ x:{ grid:{ color:'#1e3352' }, ticks:{ color:'#64748b' } }, y:{ grid:{ color:'#1e3352' }, ticks:{ color:'#64748b' }, beginAtZero:true } }
+};
+const optsNoScale = { responsive:true, maintainAspectRatio:true, plugins:{ legend:{ display:false }, tooltip:{ backgroundColor:'rgba(11,17,32,0.95)', titleColor:'#e2e8f0', bodyColor:'#94a3b8', borderColor:'#1e3352', borderWidth:1, padding:10, cornerRadius:8 } } };
+function hBar(labels, data, colors) {
+  return { responsive:true, maintainAspectRatio:true, indexAxis:'y',
+    plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'rgba(11,17,32,0.95)', titleColor:'#e2e8f0', bodyColor:'#94a3b8', borderColor:'#1e3352', borderWidth:1, padding:10, cornerRadius:8 } },
+    scales:{ x:{ grid:{color:'#1e3352'}, ticks:{color:'#64748b'} }, y:{ grid:{display:false}, ticks:{color:'#94a3b8'} } }
+  };
+}
+
+// ─── NACIMIENTOS ────────────────────────────────────────────
+
+// 1. Nacimientos por mes
+(function(){
+  const ctx = document.getElementById('chartNacMes').getContext('2d');
+  const oc = [52400,48900,54200,51800,56300,53700,55100,58200,54800,52900,49300,51400];
+  const re = [50200,47100,52400,49800,54100,51900,53200,56100,52700,51000,47500,49500];
+  new Chart(ctx,{type:'line',data:{labels:MONTHS,datasets:[
+    {label:'Ocurrencia',data:oc,borderColor:'#38bdf8',backgroundColor:mkGrad(ctx,'#38bdf8'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#38bdf8'},
+    {label:'Residencia',data:re,borderColor:'#34d399',backgroundColor:mkGrad(ctx,'#34d399'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#34d399'}
+  ]},options:{...opts,plugins:{...opts.plugins,legend:{display:true,labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle'}}}}});
+})();
+
+// 2. Sexo al nacer
+(function(){
+  const ctx = document.getElementById('chartSexo').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Masculino','Femenino','Indeterminado'],datasets:[{data:[332,313.2,1.3],backgroundColor:['#38bdf8','#f472b6','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'72%'}});
+})();
+
+// 3. IPS
+(function(){
+  const ctx = document.getElementById('chartIPS').getContext('2d');
+  const labels = ['Hospital San Vicente','Clínica Medellín','ESE Norte Bogotá','Clínica del Country','Hospital Pablo VI','ESE Imsalud','Clínica General Norte','Hospital San Ignacio','ESE Oriente Cali','Hospital Simón Bolívar'];
+  const data = [18420,16800,15300,14700,13200,12900,11800,11200,10700,10100];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE,borderRadius:6}]},options:hBar(labels,data,PALETTE)});
+})();
+
+// 4. Sitio de parto
+(function(){
+  const ctx = document.getElementById('chartSitio').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Hospital público','Clínica privada','Centro de salud','Domicilio','Otro'],datasets:[{data:[42.3,38.1,14.2,3.8,1.6],backgroundColor:['#38bdf8','#34d399','#a78bfa','#fb923c','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 5. Tipo de parto
+(function(){
+  const ctx = document.getElementById('chartTipoParto').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Espontáneo','Cesárea','Fórceps','Otro'],datasets:[{data:[51.2,44.8,2.4,1.6],backgroundColor:['#34d399','#38bdf8','#fb923c','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 6. País madre
+(function(){
+  const ctx = document.getElementById('chartPais').getContext('2d');
+  const labels = ['Colombia','Venezuela','Ecuador','Perú','Bolivia','Haití','Brasil','Cuba','Chile','Otros'];
+  const data = [589300,42100,4800,3200,2100,1800,900,700,600,1882];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE,borderRadius:6}]},options:opts});
+})();
+
+// 7. Edad madre
+(function(){
+  const ctx = document.getElementById('chartEdadMadre').getContext('2d');
+  const labels = ['10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54'];
+  const data = [2841,58200,142300,168400,147200,86400,32100,8200,742];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:labels.map((_,i)=>i===0?'#f87171':i===1?'#fb923c':i<5?'#38bdf8':'#a78bfa'),borderRadius:6,borderSkipped:false}]},options:{...opts,plugins:{...opts.plugins,tooltip:{...opts.plugins.tooltip,callbacks:{label:c=>`${c.raw.toLocaleString()} nacimientos`}}}}});
+})();
+
+// 8. Peso al nacer
+(function(){
+  const ctx = document.getElementById('chartPeso').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Muy bajo (<1.500g)','Bajo (1.500-2.499g)','Adecuado (2.500-3.999g)','Macrosomía (≥4.000g)','Sin info'],datasets:[{data:[1.8,9.2,77.4,8.9,2.7],backgroundColor:['#f87171','#fb923c','#34d399','#38bdf8','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'62%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:6,font:{size:9}}}}}});
+})();
+
+// 9. Semanas gestación
+(function(){
+  const ctx = document.getElementById('chartGestacion').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Pretérmino (<37 sem)','Término (37-41 sem)','Postérmino (≥42 sem)','Sin info'],datasets:[{data:[11.4,83.2,3.8,1.6],backgroundColor:['#fbbf24','#34d399','#f87171','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'62%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:6,font:{size:9}}}}}});
+})();
+
+// 10. Etnia
+(function(){
+  const ctx = document.getElementById('chartEtnia').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Sin pertenencia','Indígena','Afrocolombiano','Raizal','Palenquero','Rom/Gitano','Sin info'],datasets:[{data:[82.4,4.8,9.1,0.9,0.4,0.2,2.2],backgroundColor:['#38bdf8','#34d399','#a78bfa','#fb923c','#fbbf24','#f472b6','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'62%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:4,font:{size:9}}}}}});
+})();
+
+// 11. Educación madre
+(function(){
+  const ctx = document.getElementById('chartEduMadre').getContext('2d');
+  const labels = ['Ninguno','Preescolar','Primaria','Secundaria','Media técnica','Normal superior','Tecnológica','Universitaria','Posgrado','Sin dato'];
+  const data = [8200,2100,89400,218300,78200,12400,42100,118300,24800,53582];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE,borderRadius:6}]},options:opts});
+})();
+
+// 12. Educación padre
+(function(){
+  const ctx = document.getElementById('chartEduPadre').getContext('2d');
+  const labels = ['Ninguno','Preescolar','Primaria','Secundaria','Media técnica','Normal superior','Tecnológica','Universitaria','Posgrado','Sin dato'];
+  const data = [9800,1800,94200,224100,72100,9800,38400,102700,19200,75282];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE2,borderRadius:6}]},options:opts});
+})();
+
+// ─── DEFUNCIONES NO FETALES ──────────────────────────────────
+
+// 1. Def. por mes
+(function(){
+  const ctx = document.getElementById('chartDefMes').getContext('2d');
+  const oc = [22100,19800,21400,20200,21900,20100,21300,22400,20800,20200,19400,21300];
+  const re = [21200,19000,20600,19400,21100,19300,20500,21600,20000,19400,18600,20500];
+  new Chart(ctx,{type:'line',data:{labels:MONTHS,datasets:[
+    {label:'Ocurrencia',data:oc,borderColor:'#f87171',backgroundColor:mkGrad(ctx,'#f87171'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#f87171'},
+    {label:'Residencia',data:re,borderColor:'#fb923c',backgroundColor:mkGrad(ctx,'#fb923c'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#fb923c'}
+  ]},options:{...opts,plugins:{...opts.plugins,legend:{display:true,labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle'}}}}});
+})();
+
+// 2. Variación interanual
+(function(){
+  const ctx = document.getElementById('chartVariacion').getContext('2d');
+  const data = [2.1,-1.4,-3.2,-4.8,-5.1,-2.9,-3.4,-4.2,-3.8,-2.1,-1.8,-2.7];
+  new Chart(ctx,{type:'bar',data:{labels:MONTHS,datasets:[{data,backgroundColor:data.map(v=>v>0?'rgba(248,113,113,0.7)':'rgba(52,211,153,0.7)'),borderColor:data.map(v=>v>0?'#f87171':'#34d399'),borderWidth:1,borderRadius:4}]},options:{...opts,plugins:{...opts.plugins,tooltip:{...opts.plugins.tooltip,callbacks:{label:c=>`${c.raw>0?'+':''}${c.raw}%`}}}}});
+})();
+
+// 3. Tipo defunción
+(function(){
+  const ctx = document.getElementById('chartTipoDef').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Natural','No Natural','Sin info'],datasets:[{data:[72.4,26.1,1.5],backgroundColor:['#38bdf8','#f87171','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 4. Sexo defunción
+(function(){
+  const ctx = document.getElementById('chartSexoDef').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Masculino','Femenino','Sin info'],datasets:[{data:[54.8,44.9,0.3],backgroundColor:['#38bdf8','#f472b6','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 5. Etnia defunción
+(function(){
+  const ctx = document.getElementById('chartEtniaDef').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Sin pertenencia','Indígena','Afrocolombiano','Raizal','Palenquero','Rom','Sin info'],datasets:[{data:[80.2,3.4,10.8,0.7,0.3,0.1,4.5],backgroundColor:PALETTE,borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'62%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:4,font:{size:9}}}}}});
+})();
+
+// 6. IPS defunción
+(function(){
+  const ctx = document.getElementById('chartIPSDef').getContext('2d');
+  const labels = ['Hospital San Vicente','ESE Norte Bogotá','Hospital San Ignacio','Hospital Pablo VI','Clínica Medellín','ESE Imsalud','Hospital Simón Bolívar','Clínica General Norte','ESE Oriente Cali','Clínica del Country'];
+  const data = [8400,7200,6900,6400,5800,5200,4900,4400,4100,3800];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE.map(c=>c+'cc'),borderRadius:6}]},options:hBar(labels,data,PALETTE)});
+})();
+
+// 7. Ciclo de vida
+(function(){
+  const ctx = document.getElementById('chartCiclo').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Primera Infancia','Infancia','Adolescencia','Juventud','Adultez','Vejez'],datasets:[{data:[8.2,2.8,4.6,9.8,31.4,43.2],backgroundColor:['#f87171','#fb923c','#fbbf24','#34d399','#38bdf8','#a78bfa'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'0%',plugins:{...optsNoScale.plugins,legend:{display:false}}}});
+})();
+
+// ─── DEFUNCIONES FETALES ─────────────────────────────────────
+
+// 1. Fetales por mes
+(function(){
+  const ctx = document.getElementById('chartFetMes').getContext('2d');
+  const oc = [1120,980,1080,1040,1140,1020,1090,1180,1060,1020,980,1100];
+  const re = [1080,940,1040,1000,1100,980,1050,1140,1020,980,940,1060];
+  new Chart(ctx,{type:'line',data:{labels:MONTHS,datasets:[
+    {label:'Ocurrencia',data:oc,borderColor:'#f87171',backgroundColor:mkGrad(ctx,'#f87171'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#f87171'},
+    {label:'Residencia',data:re,borderColor:'#a78bfa',backgroundColor:mkGrad(ctx,'#a78bfa'),fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:'#a78bfa'}
+  ]},options:{...opts,plugins:{...opts.plugins,legend:{display:true,labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle'}}}}});
+})();
+
+// 2. Variación fetales
+(function(){
+  const ctx = document.getElementById('chartVariacionFet').getContext('2d');
+  const data = [1.2,-0.8,-1.4,-2.2,-3.1,-1.9,-2.4,-2.8,-1.8,-1.2,-0.9,-1.6];
+  new Chart(ctx,{type:'bar',data:{labels:MONTHS,datasets:[{data,backgroundColor:data.map(v=>v>0?'rgba(248,113,113,0.7)':'rgba(52,211,153,0.7)'),borderColor:data.map(v=>v>0?'#f87171':'#34d399'),borderWidth:1,borderRadius:4}]},options:{...opts,plugins:{...opts.plugins,tooltip:{...opts.plugins.tooltip,callbacks:{label:c=>`${c.raw>0?'+':''}${c.raw}%`}}}}});
+})();
+
+// 3. Tipo fetal
+(function(){
+  const ctx = document.getElementById('chartTipoFet').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Natural','No Natural','Sin info'],datasets:[{data:[88.4,8.2,3.4],backgroundColor:['#38bdf8','#f87171','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 4. Sexo fetal
+(function(){
+  const ctx = document.getElementById('chartSexoFet').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Masculino','Femenino','Sin info'],datasets:[{data:[52.1,43.8,4.1],backgroundColor:['#38bdf8','#f472b6','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'65%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:10}}}}});
+})();
+
+// 5. Etnia fetal
+(function(){
+  const ctx = document.getElementById('chartEtniaFet').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Sin pertenencia','Indígena','Afrocolombiano','Raizal','Palenquero','Rom','Sin info'],datasets:[{data:[78.4,4.8,10.2,0.6,0.2,0.1,5.7],backgroundColor:PALETTE,borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'62%',plugins:{...optsNoScale.plugins,legend:{display:true,position:'bottom',labels:{color:'#94a3b8',usePointStyle:true,pointStyle:'circle',boxWidth:8,padding:4,font:{size:9}}}}}});
+})();
+
+// 6. IPS fetal
+(function(){
+  const ctx = document.getElementById('chartIPSFet').getContext('2d');
+  const labels = ['Hospital San Vicente','ESE Norte Bogotá','Hospital Pablo VI','Hospital San Ignacio','Clínica Medellín','ESE Imsalud','Hospital Simón Bolívar','ESE Oriente Cali','Clínica General Norte','Clínica del Country'];
+  const data = [820,740,680,620,580,520,490,440,410,380];
+  new Chart(ctx,{type:'bar',data:{labels,datasets:[{data,backgroundColor:PALETTE.map(c=>c+'cc'),borderRadius:6}]},options:hBar(labels,data,PALETTE)});
+})();
+
+// 7. Ciclo fetal
+(function(){
+  const ctx = document.getElementById('chartCicloFet').getContext('2d');
+  new Chart(ctx,{type:'doughnut',data:{labels:['Aborto','Mortinatos','Perinatales','Sin clasificar'],datasets:[{data:[42.1,38.3,14.8,4.8],backgroundColor:['#f87171','#fb923c','#fbbf24','#64748b'],borderColor:'transparent',hoverOffset:8}]},options:{...optsNoScale,cutout:'0%',plugins:{...optsNoScale.plugins,legend:{display:false}}}});
+})();
+
+// ─── Tab switching ───────────────────────────────────────────
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.closest('.tab').classList.add('active');
+}
+
+function applyFilters() {
+  // In production: re-fetch data with filter params
+  const year = document.getElementById('f-year').value;
+  const month = document.getElementById('f-month').value;
+  const dept = document.getElementById('f-dept').value;
+  const tipo = document.getElementById('f-tipo').value;
+  console.log('Filters:', {year, month, dept, tipo});
+  // Placeholder: would re-render charts with filtered data
+}
+
+function resetFilters() {
+  document.getElementById('f-year').value = '2024';
+  document.getElementById('f-month').value = '0';
+  document.getElementById('f-dept').value = 'Todos';
+  document.getElementById('f-tipo').value = 'Ocurrencia';
+  applyFilters();
+}
+</script>
+</body>
+</html>
